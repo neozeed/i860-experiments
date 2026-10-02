@@ -1,0 +1,4 @@
+R4P rebuild of the exact IC original:
+PASS R4O verification, including reproduction of R4N's invalid stack store.
+PASS .svmem, .svtext, .host, .hdata, .idata, .orig386 byte-identical to IC R4O.
+IC executable retained in the package is the original live-proven R4O build.

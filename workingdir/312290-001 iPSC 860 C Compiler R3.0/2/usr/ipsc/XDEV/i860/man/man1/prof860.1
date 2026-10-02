@@ -1,0 +1,146 @@
+.if n .ds tM (tm)
+.if t .ds tM \u\s-3TM\s+3\d
+.TH "PROF860\fR\fR\&" 1 "2/7/1992" "Release 3.0" "iPSC\*R/860 System"
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.\" This file created by mif2man for "prof860"
+.\" %M% %I% %D% %U%
+.ps 10
+.nr Ll \n(.l
+.fi
+.na
+.nh
+.SH NAME
+PROF860\fR\fR\& - Displays profile data.
+.\" End Summary
+.SH SYNTAX
+.br
+\&\fBprof860\fR\fR\& [ \fB\&-t\fR\fR\& | \fB\&-c\fR\fR\& | \fB\
+\&-a\fR\fR\& | \fB\&-n\fR\fR\& ]  [ \fB\&-o\fR\fR\& | \fB\&-x\fR\fR\
+\& ]  [ \fB\&-g\fR\fR\& ] [ \fB\&-z\fR\fR\& ]  [ \fB\&-h\fR\fR\
+\& ] [ \fB\&-s\fR\fR\&]  [ \fB\&-m\fR\fR\& \fR\fImdata\fI\fR\& ] [ \fR\fI\
+prog\fI\fR\& ] 
+.SH ARGUMENTS
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-t\fR\fR\& 	\h'-\w' 'u' Sort output lines by decreasing percentage of total time (default). 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-c\fR\fR\& 	\h'-\w' 'u' Sort output lines by decreasing number of calls. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-a\fR\fR\& 	\h'-\w' 'u' Sort output lines by increasing symbol address. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-n\fR\fR\& 	\h'-\w' 'u' Sort output lines by symbol name. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-o\fR\fR\& 	\h'-\w' 'u' Display each symbol address in octal. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-x\fR\fR\& 	\h'-\w' 'u' Display each symbol address in hexadecimal. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-g\fR\fR\& 	\h'-\w' 'u' Include non-global symbols (static functions). 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-z\fR\fR\& 	\h'-\w' 'u' Include all symbols in the profile range, even if associated with zero number \
+of calls and zero time. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-h\fR\fR\& 	\h'-\w' 'u' Suppress the heading normally displayed on the report. (This is useful if the \
+report is to be processed further.) 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-s\fR\fR\& 	\h'-\w' 'u' Display a summary of several of the monitoring parameters and statistics on \
+the standard error output. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-m\fR\fI\& mdata 	\h'-\w' 'u' \fI\fRUse file \fR\fImdata\fI\fR\
+\& as the input profile file. If you omit this argument, \fBprof860\fR\fR\
+\& uses the file \fR\fI\&000.mon.out\fI\fR\&. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fR\fIprog\fI\fR\& 	\h'-\w' 'u' Correlate the symbol table in the executable file \fR\fI\
+prog\fI\fR\& with the profile file specified by the \fB\&-m\fR\fR\
+\& argument. If you omit this argument, \fBprof860\fR\fR\& uses the \
+symbol table in the executable file \fR\fIa.out\fI\fR\&. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.SH DESCRIPTION
+.LP
+Use \fBprof860 \fR\fRto interpret a profile file produced by the \fB\
+monitor(3C)\fR\fR\& function. The symbol table in the executable \fR\fI\
+prog\fI\fR\& is read and correlated with the profile file \fR\fI\
+mdata\fI\fR\&. For each external text symbol the percentage of time spent executing between the address of that symbol and the address of the \
+next is displayed, together with the number of times that function was called and the average number \
+of milliseconds per call.
+.LP
+A program creates a profile file if it has been linked with the \fB\
+\&-p\fR\fR\& option of \fBicc\fR\fR\& or \fBif77\fR\fR\&. This option \
+arranges for calls to \fBmonitor(3C)\fR\fR\& at the beginning and end of execution. It is the call to \fB\
+monitor(3C)\fR\fR\& at the end of execution that causes a profile file to be written. The number of calls to a function is \
+tallied if the \fB\&-p\fR\fR\& option was used when the file containing the function was compiled.
+.LP
+The name of the file created by a profiled program is controlled by the environment variable \fR\fI\
+PROFDIR\fI\fR\&. If \fR\fIPROFDIR\fI\fR\& does not exist,\fR\fI\
+\& nnn.mon.out\fI\fR\&, where \fR\fInnn\fI\fR\& is the node ID of the node in the \
+allocated cube (left-padded with zeroes, if necessary to generate three digits), is produced in the \
+directory that is current when the program terminates. If \fR\fI\
+PROFDIR\fI\fR\& = \fR\fIstring\fI\fR\&, then \fR\fIstring/nnn.progname\fI\fR\
+\& is produced, where \fR\fIprogname\fI\fR\& consists of \fR\fI\
+argv[0]\fI\fR\& with any path prefix removed, and \fR\fInnn\fI\fR\
+\& is the program's node. If \fR\fIPROFDIR\fI\fR\& is the null string, no profiling output is \
+produced.
+.LP
+The times reported in successive identical runs may vary by 5% or more, because of varying \
+cache-hit ratios due to sharing of the cache with other processes.  Even if a program seems to be the \
+only one using the machine, hidden background or asynchronous processes may blur the data.  In \
+rare cases, the clock ticks initiating recording of the program counter may beat with loops in a \
+program, grossly distorting measurements.
+.LP
+Call counts are always recorded precisely.
+.LP
+Only programs that call \fBexit(2)\fR\fR\& or return from \fB\
+main\fR\fR\& will cause a profile file to be produced, unless \
+a final call to \fBmonitor(3C)\fR\fR\& is explicitly coded.
+.LP
+The use of the \fB\&-p\fR\fR\& option to invoke profiling imposes a limit of 1000 functions that may have call \
+counters established during program execution. For more counters, you must call \fB\
+monitor(3C) \fR\fRdirectly. The number of call counters used will be reported automatically by the \fB\
+prof860\fR\fR\& command whenever the number exceeds 5/6 of the maximum.
+.LP
+Idle time spent waiting for communication or I/O is credited to the \fB\
+flick()\fR\fR\& system call.
+.LP
+\fBprof860 \fR\fRis not for use with programs loaded with remote host software.
+.SH SEE ALSO
+.LP
+\fR\fIUNIX System V Programmer's Reference Manual:\fI\fR\& \fB\
+monitor(3C)\fR\fR\& 
+.LP
+\fR\fR
+.LP
+.LP
+.LP

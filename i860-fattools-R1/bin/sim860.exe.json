@@ -1,0 +1,602 @@
+{
+  "format": "I860FAT2PE-R1",
+  "input": {
+    "path": "sim860",
+    "sha256": "faf27718654c64e0b9c4bc8ed0efea10d78239ffd6f62a0985a13290f1818137",
+    "size": 351494
+  },
+  "limitations": [
+    "execution conversion requires the exact proven Intel SVR3 run860 wrapper fingerprint",
+    "appended payload must be Intel i860 COFF with three sections and a 36-byte optional header",
+    "signal registration is stub-success; asynchronous signal delivery is not implemented",
+    "chmod validates existence and accepts Unix mode bits as a Win32 compatibility no-op",
+    "unknown i860 opcodes/syscalls stop with diagnostics rather than being guessed",
+    "step limit is a safety ceiling, not a success oracle; rebuild with --step-limit if a workload legitimately needs more",
+    "this is not yet a universal arbitrary System V/386 COFF converter"
+  ],
+  "outer_patches": [
+    {
+      "kind": "abs_code_ptr",
+      "new_target": 4228368,
+      "old_target": 1504,
+      "old_va": 1347,
+      "text_offset": 1139
+    },
+    {
+      "kind": "abs_code_ptr",
+      "new_target": 4229232,
+      "old_target": 2368,
+      "old_va": 2270,
+      "text_offset": 2062
+    },
+    {
+      "kind": "abs_code_ptr",
+      "new_target": 4229232,
+      "old_target": 2368,
+      "old_va": 2290,
+      "text_offset": 2082
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4227136,
+      "old_va": 272,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 64
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4228393,
+      "old_va": 1529,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 1321
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4228409,
+      "old_va": 1545,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 1337
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4228573,
+      "old_va": 1709,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 1501
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4228593,
+      "old_va": 1729,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 1521
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4228605,
+      "old_va": 1741,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 1533
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4228825,
+      "old_va": 1961,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 1753
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4229021,
+      "old_va": 2157,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 1949
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4229041,
+      "old_va": 2177,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 1969
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4229113,
+      "old_va": 2249,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 2041
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4229218,
+      "old_va": 2354,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 2146
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4229235,
+      "old_va": 2371,
+      "selector": 15,
+      "target_va": 4199903,
+      "text_offset": 2163
+    }
+  ],
+  "output": {
+    "checks": {
+      "hdata_rw_not_executable": true,
+      "host_rx_not_writable": true,
+      "i860_payload_preserved": true,
+      "no_lcall15": true,
+      "no_lcall7": true,
+      "original_wrapper_preserved": true,
+      "outer_data_exact_va": true,
+      "patched_text_same_size": true
+    },
+    "path": "/mnt/data/i860-fattools-R1/bin/sim860.exe",
+    "sections": {
+      ".hdata": {
+        "chars": 3221225536,
+        "name": ".hdata",
+        "raw_offset": 17408,
+        "raw_size": 8704,
+        "rva": 20480,
+        "vsize": 8672
+      },
+      ".host": {
+        "chars": 1610612768,
+        "name": ".host",
+        "raw_offset": 4096,
+        "raw_size": 13312,
+        "rva": 4096,
+        "vsize": 13099
+      },
+      ".i860": {
+        "chars": 1073741888,
+        "name": ".i860",
+        "raw_offset": 29184,
+        "raw_size": 347648,
+        "rva": 40960,
+        "vsize": 347232
+      },
+      ".idata": {
+        "chars": 1073741888,
+        "name": ".idata",
+        "raw_offset": 28672,
+        "raw_size": 512,
+        "rva": 36864,
+        "vsize": 435
+      },
+      ".meta": {
+        "chars": 1073741888,
+        "name": ".meta",
+        "raw_offset": 376832,
+        "raw_size": 11776,
+        "rva": 389120,
+        "vsize": 11490
+      },
+      ".orig386": {
+        "chars": 1073741888,
+        "name": ".orig386",
+        "raw_offset": 388608,
+        "raw_size": 4608,
+        "rva": 401408,
+        "vsize": 4262
+      },
+      ".svtext": {
+        "chars": 1610612768,
+        "name": ".svtext",
+        "raw_offset": 26112,
+        "raw_size": 2560,
+        "rva": 32768,
+        "vsize": 2184
+      }
+    },
+    "sha256": "ab5c4384032cfe90511baf1ad6398ea2c7d9f47340aff0f8957ecd5ba168db4e",
+    "size": 393216,
+    "size_of_image": 409600
+  },
+  "payload": {
+    "entry": 4030965856,
+    "offset": 4262,
+    "sections": [
+      {
+        "flags": 32,
+        "name": ".text",
+        "nreloc": 0,
+        "scnptr": 192,
+        "size": 268800,
+        "vaddr": 4030726336
+      },
+      {
+        "flags": 64,
+        "name": ".data",
+        "nreloc": 0,
+        "scnptr": 268992,
+        "size": 78240,
+        "vaddr": 6848
+      },
+      {
+        "flags": 128,
+        "name": ".bss",
+        "nreloc": 0,
+        "scnptr": 0,
+        "size": 26912,
+        "vaddr": 85088
+      }
+    ],
+    "sha256": "f5953b476d0188602632f7fe2fd5c195b53e9d6abdf5ebd46d963a20cd6c89a2",
+    "size": 347232
+  },
+  "runtime": {
+    "diagnostics": "quiet by default; set I860_VERBOSE=1 for host scaffolding; guest output is never filtered",
+    "file_io": "binary-safe Win32 HANDLE backend; no CRT text translation",
+    "low_heap_limit": "0x01000000",
+    "stack": "0x7FFF0000..0x7FFFFFFF",
+    "step_limit": 20000000,
+    "syscalls": "exit/read/write/open/close/creat/unlink/time/chmod/brk/stat/lseek/getpid/getuid/fstat/access/getgid/signal/utssys",
+    "unknown_traps": "diagnostic stop with r31/r16-r19"
+  },
+  "scope": "proven Intel run860 fat-tool family",
+  "static_i860_traps": [
+    {
+      "name": "exit",
+      "pc": 4030967204,
+      "predecessor": 3827236865,
+      "syscall": 1,
+      "word": 1205925888
+    },
+    {
+      "name": "access",
+      "pc": 4030967236,
+      "predecessor": 3827236897,
+      "syscall": 33,
+      "word": 1205925888
+    },
+    {
+      "name": "acct",
+      "pc": 4030967268,
+      "predecessor": 3827236915,
+      "syscall": 51,
+      "word": 1205925888
+    },
+    {
+      "name": "chdir",
+      "pc": 4030968036,
+      "predecessor": 3827236876,
+      "syscall": 12,
+      "word": 1205925888
+    },
+    {
+      "name": "chmod",
+      "pc": 4030968068,
+      "predecessor": 3827236879,
+      "syscall": 15,
+      "word": 1205925888
+    },
+    {
+      "name": "chown",
+      "pc": 4030968100,
+      "predecessor": 3827236880,
+      "syscall": 16,
+      "word": 1205925888
+    },
+    {
+      "name": "chroot",
+      "pc": 4030968132,
+      "predecessor": 3827236925,
+      "syscall": 61,
+      "word": 1205925888
+    },
+    {
+      "name": "close",
+      "pc": 4030968484,
+      "predecessor": 3827236870,
+      "syscall": 6,
+      "word": 1205925888
+    },
+    {
+      "name": "creat",
+      "pc": 4030968516,
+      "predecessor": 3827236872,
+      "syscall": 8,
+      "word": 1205925888
+    },
+    {
+      "name": "dup",
+      "pc": 4030968548,
+      "predecessor": 3827236905,
+      "syscall": 41,
+      "word": 1205925888
+    },
+    {
+      "name": "fcntl",
+      "pc": 4030970308,
+      "predecessor": 3827236926,
+      "syscall": 62,
+      "word": 1205925888
+    },
+    {
+      "name": "fstat",
+      "pc": 4030975236,
+      "predecessor": 3827236892,
+      "syscall": 28,
+      "word": 1205925888
+    },
+    {
+      "name": "fstatfs",
+      "pc": 4030975268,
+      "predecessor": 3827236902,
+      "syscall": 38,
+      "word": 1205925888
+    },
+    {
+      "name": "getdents",
+      "pc": 4030975908,
+      "predecessor": 3827236945,
+      "syscall": 81,
+      "word": 1205925888
+    },
+    {
+      "name": "getgid",
+      "pc": 4030975940,
+      "predecessor": 3827236911,
+      "syscall": 47,
+      "word": 1205925888
+    },
+    {
+      "name": "getgid",
+      "pc": 4030976068,
+      "predecessor": 3827236911,
+      "syscall": 47,
+      "word": 1205925888
+    },
+    {
+      "name": "getpid",
+      "pc": 4030976100,
+      "predecessor": 3827236884,
+      "syscall": 20,
+      "word": 1205925888
+    },
+    {
+      "name": "getpid",
+      "pc": 4030976116,
+      "predecessor": 3827236884,
+      "syscall": 20,
+      "word": 1205925888
+    },
+    {
+      "name": "getuid",
+      "pc": 4030976132,
+      "predecessor": 3827236888,
+      "syscall": 24,
+      "word": 1205925888
+    },
+    {
+      "name": "getuid",
+      "pc": 4030976148,
+      "predecessor": 3827236888,
+      "syscall": 24,
+      "word": 1205925888
+    },
+    {
+      "name": "ioctl",
+      "pc": 4030976164,
+      "predecessor": 3827236918,
+      "syscall": 54,
+      "word": 1205925888
+    },
+    {
+      "name": "kill",
+      "pc": 4030976420,
+      "predecessor": 3827236901,
+      "syscall": 37,
+      "word": 1205925888
+    },
+    {
+      "name": "link",
+      "pc": 4030976452,
+      "predecessor": 3827236873,
+      "syscall": 9,
+      "word": 1205925888
+    },
+    {
+      "name": "lseek",
+      "pc": 4030976484,
+      "predecessor": 3827236883,
+      "syscall": 19,
+      "word": 1205925888
+    },
+    {
+      "name": "mkdir",
+      "pc": 4030978468,
+      "predecessor": 3827236944,
+      "syscall": 80,
+      "word": 1205925888
+    },
+    {
+      "name": "mknod",
+      "pc": 4030978500,
+      "predecessor": 3827236878,
+      "syscall": 14,
+      "word": 1205925888
+    },
+    {
+      "name": "mount",
+      "pc": 4030978532,
+      "predecessor": 3827236885,
+      "syscall": 21,
+      "word": 1205925888
+    },
+    {
+      "name": "open",
+      "pc": 4030978564,
+      "predecessor": 3827236869,
+      "syscall": 5,
+      "word": 1205925888
+    },
+    {
+      "name": "pgrpsys",
+      "pc": 4030978620,
+      "predecessor": 3827236903,
+      "syscall": 39,
+      "word": 1205925888
+    },
+    {
+      "name": "pipe",
+      "pc": 4030978664,
+      "predecessor": 3827236906,
+      "syscall": 42,
+      "word": 1205925888
+    },
+    {
+      "name": "read",
+      "pc": 4030990148,
+      "predecessor": 3827236867,
+      "syscall": 3,
+      "word": 1205925888
+    },
+    {
+      "name": "rmdir",
+      "pc": 4030990244,
+      "predecessor": 3827236943,
+      "syscall": 79,
+      "word": 1205925888
+    },
+    {
+      "name": "brk",
+      "pc": 4030990328,
+      "predecessor": 3827236881,
+      "syscall": 17,
+      "word": 1205925888
+    },
+    {
+      "name": "setgid",
+      "pc": 4030990596,
+      "predecessor": 3827236910,
+      "syscall": 46,
+      "word": 1205925888
+    },
+    {
+      "name": "setuid",
+      "pc": 4030990628,
+      "predecessor": 3827236887,
+      "syscall": 23,
+      "word": 1205925888
+    },
+    {
+      "name": "signal",
+      "pc": 4030990704,
+      "predecessor": 3827236912,
+      "syscall": 48,
+      "word": 1205925888
+    },
+    {
+      "name": "stat",
+      "pc": 4030990756,
+      "predecessor": 3827236882,
+      "syscall": 18,
+      "word": 1205925888
+    },
+    {
+      "name": "statfs",
+      "pc": 4030990788,
+      "predecessor": 3827236899,
+      "syscall": 35,
+      "word": 1205925888
+    },
+    {
+      "name": "stime",
+      "pc": 4030990820,
+      "predecessor": 3827236889,
+      "syscall": 25,
+      "word": 1205925888
+    },
+    {
+      "name": "sync",
+      "pc": 4030992260,
+      "predecessor": 3827236900,
+      "syscall": 36,
+      "word": 1205925888
+    },
+    {
+      "name": "time",
+      "pc": 4030992296,
+      "predecessor": 3827236877,
+      "syscall": 13,
+      "word": 1205925888
+    },
+    {
+      "name": "times",
+      "pc": 4030992324,
+      "predecessor": 3827236907,
+      "syscall": 43,
+      "word": 1205925888
+    },
+    {
+      "name": "ulimit",
+      "pc": 4030992356,
+      "predecessor": 3827236927,
+      "syscall": 63,
+      "word": 1205925888
+    },
+    {
+      "name": "umask",
+      "pc": 4030992388,
+      "predecessor": 3827236924,
+      "syscall": 60,
+      "word": 1205925888
+    },
+    {
+      "name": "umount",
+      "pc": 4030992420,
+      "predecessor": 3827236886,
+      "syscall": 22,
+      "word": 1205925888
+    },
+    {
+      "name": "unlink",
+      "pc": 4030992452,
+      "predecessor": 3827236874,
+      "syscall": 10,
+      "word": 1205925888
+    },
+    {
+      "name": "utssys",
+      "pc": 4030992488,
+      "predecessor": 3827236921,
+      "syscall": 57,
+      "word": 1205925888
+    },
+    {
+      "name": "utime",
+      "pc": 4030992516,
+      "predecessor": 3827236894,
+      "syscall": 30,
+      "word": 1205925888
+    },
+    {
+      "name": "write",
+      "pc": 4030992548,
+      "predecessor": 3827236868,
+      "syscall": 4,
+      "word": 1205925888
+    }
+  ],
+  "wrapper": {
+    "fingerprint_match": true,
+    "sha256": "9c0007b43b93b13f1f06f75832c61a44c5276e59860113ebdc6b04896b784023",
+    "size": 4262
+  }
+}

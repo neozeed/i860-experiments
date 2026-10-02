@@ -1,0 +1,17 @@
+[
+  {
+    "cw": "0x240",
+    "sw": "0x20",
+    "precision_tail_called": true
+  },
+  {
+    "cw": "0x260",
+    "sw": "0x20",
+    "precision_tail_called": false
+  },
+  {
+    "cw": "0x240",
+    "sw": "0x0",
+    "precision_tail_called": false
+  }
+]

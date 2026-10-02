@@ -1,0 +1,2811 @@
+{
+  "family": "native-static-svr3-i386",
+  "format": "SVR3COFF2PE-R4S",
+  "gate_counts": {
+    "7": 13,
+    "15": 0
+  },
+  "input": {
+    "name": "as860.coff",
+    "sha256": "66c441db201bdc9f93f310b669ab3da22191004fcf5d70ec40187dbeed054288",
+    "size": 181502
+  },
+  "layout": {
+    "heap_limit": 5177344,
+    "historical_bss_va": 4234372,
+    "historical_data_va": 4196608,
+    "host_data_va": 5361664,
+    "host_va": 5345280,
+    "image_base": 4194304,
+    "relocated_entry_va": 5242884,
+    "relocated_text_va": 5242880,
+    "text_delta": 5242672
+  },
+  "limitations": [
+    "recognized exact native profile required; R4O IC uses audited operand locations",
+    "fork is synchronous snapshot/restore rather than concurrent Unix process cloning",
+    "native family Windows runtime not yet tested",
+    "stat is a compact deterministic compatibility subset",
+    "IC R4O has passed static verification; native Windows compilation remains unverified"
+  ],
+  "output": {
+    "checks": {
+      "base_of_code_first_code": true,
+      "base_of_data_first_data": true,
+      "header_data_prefix_exact": true,
+      "historical_memory_rw_nx": true,
+      "no_section_overlaps": true,
+      "no_selector15_lcall": true,
+      "no_selector7_lcall": true,
+      "original_coff_preserved": true,
+      "relocated_text_exact": true,
+      "sections_rva_adjacent": true,
+      "svmem_data_suffix_exact": true,
+      "text_rx": true
+    },
+    "path": "/workspace/scratch/a6b527775b27/svr3coff2pe-R4S/as860-pe.exe",
+    "sections": {
+      ".hdata": {
+        "chars": 3221225536,
+        "name": ".hdata",
+        "raw_offset": 1165824,
+        "raw_size": 20480,
+        "rva": 1167360,
+        "vsize": 20480
+      },
+      ".host": {
+        "chars": 1610612768,
+        "name": ".host",
+        "raw_offset": 1149440,
+        "raw_size": 16384,
+        "rva": 1150976,
+        "vsize": 16384
+      },
+      ".idata": {
+        "chars": 1073741888,
+        "name": ".idata",
+        "raw_offset": 1186304,
+        "raw_size": 1024,
+        "rva": 1187840,
+        "vsize": 587
+      },
+      ".meta": {
+        "chars": 1073741888,
+        "name": ".meta",
+        "raw_offset": 1187328,
+        "raw_size": 52224,
+        "rva": 1191936,
+        "vsize": 51863
+      },
+      ".orig386": {
+        "chars": 1073741888,
+        "name": ".orig386",
+        "raw_offset": 1239552,
+        "raw_size": 181760,
+        "rva": 1245184,
+        "vsize": 181502
+      },
+      ".svmem": {
+        "chars": 3221225536,
+        "name": ".svmem",
+        "raw_offset": 4096,
+        "raw_size": 1044480,
+        "rva": 4096,
+        "vsize": 1044480
+      },
+      ".svtext": {
+        "chars": 1610612768,
+        "name": ".svtext",
+        "raw_offset": 1048576,
+        "raw_size": 100864,
+        "rva": 1048576,
+        "vsize": 100400
+      }
+    },
+    "sha256": "2c21971a4f19a8cb3f1cd0707ef8e7986101763b760c893a837f8618be604ae5",
+    "size": 1421312,
+    "size_of_image": 1429504
+  },
+  "patches": [
+    {
+      "kind": "syscall_gate",
+      "new_va": 5242944,
+      "old_va": 272,
+      "selector": 7,
+      "target": 5345725
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 5330313,
+      "old_va": 87641,
+      "selector": 7,
+      "target": 5345725
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 5332513,
+      "old_va": 89841,
+      "selector": 7,
+      "target": 5345725
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 5332649,
+      "old_va": 89977,
+      "selector": 7,
+      "target": 5345725
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 5332717,
+      "old_va": 90045,
+      "selector": 7,
+      "target": 5345725
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 5341697,
+      "old_va": 99025,
+      "selector": 7,
+      "target": 5345725
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 5341913,
+      "old_va": 99241,
+      "selector": 7,
+      "target": 5345725
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 5343025,
+      "old_va": 100353,
+      "selector": 7,
+      "target": 5345725
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 5343045,
+      "old_va": 100373,
+      "selector": 7,
+      "target": 5345725
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 5343102,
+      "old_va": 100430,
+      "selector": 7,
+      "target": 5345725
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 5343209,
+      "old_va": 100537,
+      "selector": 7,
+      "target": 5345725
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 5343229,
+      "old_va": 100557,
+      "selector": 7,
+      "target": 5345725
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 5343266,
+      "old_va": 100594,
+      "selector": 7,
+      "target": 5345725
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5246276,
+      "old": 3604,
+      "va": 4213448
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243656,
+      "old": 984,
+      "va": 4213452
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213456
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213460
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213464
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213468
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213472
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213476
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243664,
+      "old": 992,
+      "va": 4213480
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243672,
+      "old": 1000,
+      "va": 4213484
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243680,
+      "old": 1008,
+      "va": 4213488
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243688,
+      "old": 1016,
+      "va": 4213492
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213496
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213500
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213504
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213508
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243696,
+      "old": 1024,
+      "va": 4213512
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243704,
+      "old": 1032,
+      "va": 4213516
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243712,
+      "old": 1040,
+      "va": 4213520
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243720,
+      "old": 1048,
+      "va": 4213524
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243728,
+      "old": 1056,
+      "va": 4213528
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243736,
+      "old": 1064,
+      "va": 4213532
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243744,
+      "old": 1072,
+      "va": 4213536
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243752,
+      "old": 1080,
+      "va": 4213540
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243760,
+      "old": 1088,
+      "va": 4213544
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243768,
+      "old": 1096,
+      "va": 4213548
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243776,
+      "old": 1104,
+      "va": 4213552
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243784,
+      "old": 1112,
+      "va": 4213556
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243792,
+      "old": 1120,
+      "va": 4213560
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243800,
+      "old": 1128,
+      "va": 4213564
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243808,
+      "old": 1136,
+      "va": 4213568
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243816,
+      "old": 1144,
+      "va": 4213572
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243824,
+      "old": 1152,
+      "va": 4213576
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243832,
+      "old": 1160,
+      "va": 4213580
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243840,
+      "old": 1168,
+      "va": 4213584
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243848,
+      "old": 1176,
+      "va": 4213588
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243856,
+      "old": 1184,
+      "va": 4213592
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243864,
+      "old": 1192,
+      "va": 4213596
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243872,
+      "old": 1200,
+      "va": 4213600
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243880,
+      "old": 1208,
+      "va": 4213604
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5248632,
+      "old": 5960,
+      "va": 4213608
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243888,
+      "old": 1216,
+      "va": 4213612
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213616
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243896,
+      "old": 1224,
+      "va": 4213620
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243904,
+      "old": 1232,
+      "va": 4213624
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243912,
+      "old": 1240,
+      "va": 4213628
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243920,
+      "old": 1248,
+      "va": 4213632
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243928,
+      "old": 1256,
+      "va": 4213636
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243936,
+      "old": 1264,
+      "va": 4213640
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243944,
+      "old": 1272,
+      "va": 4213644
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243952,
+      "old": 1280,
+      "va": 4213648
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243960,
+      "old": 1288,
+      "va": 4213652
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243968,
+      "old": 1296,
+      "va": 4213656
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243976,
+      "old": 1304,
+      "va": 4213660
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243984,
+      "old": 1312,
+      "va": 4213664
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5243992,
+      "old": 1320,
+      "va": 4213668
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244000,
+      "old": 1328,
+      "va": 4213672
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213676
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244008,
+      "old": 1336,
+      "va": 4213680
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244016,
+      "old": 1344,
+      "va": 4213684
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244024,
+      "old": 1352,
+      "va": 4213688
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244032,
+      "old": 1360,
+      "va": 4213692
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244040,
+      "old": 1368,
+      "va": 4213696
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244048,
+      "old": 1376,
+      "va": 4213700
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244056,
+      "old": 1384,
+      "va": 4213704
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244064,
+      "old": 1392,
+      "va": 4213708
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244072,
+      "old": 1400,
+      "va": 4213712
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244080,
+      "old": 1408,
+      "va": 4213716
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244088,
+      "old": 1416,
+      "va": 4213720
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244096,
+      "old": 1424,
+      "va": 4213724
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244104,
+      "old": 1432,
+      "va": 4213728
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244112,
+      "old": 1440,
+      "va": 4213732
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244120,
+      "old": 1448,
+      "va": 4213736
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213740
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244128,
+      "old": 1456,
+      "va": 4213744
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244136,
+      "old": 1464,
+      "va": 4213748
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213752
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213756
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244144,
+      "old": 1472,
+      "va": 4213760
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213764
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213768
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244152,
+      "old": 1480,
+      "va": 4213772
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213776
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213780
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213784
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244160,
+      "old": 1488,
+      "va": 4213788
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244168,
+      "old": 1496,
+      "va": 4213792
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213796
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213800
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244176,
+      "old": 1504,
+      "va": 4213804
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244184,
+      "old": 1512,
+      "va": 4213808
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213812
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213816
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244192,
+      "old": 1520,
+      "va": 4213820
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213824
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213828
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244200,
+      "old": 1528,
+      "va": 4213832
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213836
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244208,
+      "old": 1536,
+      "va": 4213840
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213844
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213848
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244216,
+      "old": 1544,
+      "va": 4213852
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244224,
+      "old": 1552,
+      "va": 4213856
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244232,
+      "old": 1560,
+      "va": 4213860
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213864
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213868
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213872
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244240,
+      "old": 1568,
+      "va": 4213876
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213880
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4213884
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244248,
+      "old": 1576,
+      "va": 4213888
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244256,
+      "old": 1584,
+      "va": 4213892
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244264,
+      "old": 1592,
+      "va": 4213896
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244272,
+      "old": 1600,
+      "va": 4213900
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244280,
+      "old": 1608,
+      "va": 4213904
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244288,
+      "old": 1616,
+      "va": 4213908
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244296,
+      "old": 1624,
+      "va": 4213912
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244304,
+      "old": 1632,
+      "va": 4213916
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244312,
+      "old": 1640,
+      "va": 4213920
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244320,
+      "old": 1648,
+      "va": 4213924
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244328,
+      "old": 1656,
+      "va": 4213928
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244336,
+      "old": 1664,
+      "va": 4213932
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244344,
+      "old": 1672,
+      "va": 4213936
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244352,
+      "old": 1680,
+      "va": 4213940
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244360,
+      "old": 1688,
+      "va": 4213944
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244368,
+      "old": 1696,
+      "va": 4213948
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244376,
+      "old": 1704,
+      "va": 4213952
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244384,
+      "old": 1712,
+      "va": 4213956
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244392,
+      "old": 1720,
+      "va": 4213960
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244400,
+      "old": 1728,
+      "va": 4213964
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244408,
+      "old": 1736,
+      "va": 4213968
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244416,
+      "old": 1744,
+      "va": 4213972
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244424,
+      "old": 1752,
+      "va": 4213976
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244432,
+      "old": 1760,
+      "va": 4213980
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244440,
+      "old": 1768,
+      "va": 4213984
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244448,
+      "old": 1776,
+      "va": 4213988
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244456,
+      "old": 1784,
+      "va": 4213992
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244464,
+      "old": 1792,
+      "va": 4213996
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244472,
+      "old": 1800,
+      "va": 4214000
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244480,
+      "old": 1808,
+      "va": 4214004
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244488,
+      "old": 1816,
+      "va": 4214008
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244496,
+      "old": 1824,
+      "va": 4214012
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244504,
+      "old": 1832,
+      "va": 4214016
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244512,
+      "old": 1840,
+      "va": 4214020
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244520,
+      "old": 1848,
+      "va": 4214024
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244528,
+      "old": 1856,
+      "va": 4214028
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244536,
+      "old": 1864,
+      "va": 4214032
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244544,
+      "old": 1872,
+      "va": 4214036
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244552,
+      "old": 1880,
+      "va": 4214040
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244560,
+      "old": 1888,
+      "va": 4214044
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244568,
+      "old": 1896,
+      "va": 4214048
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244576,
+      "old": 1904,
+      "va": 4214052
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244584,
+      "old": 1912,
+      "va": 4214056
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244592,
+      "old": 1920,
+      "va": 4214060
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244600,
+      "old": 1928,
+      "va": 4214064
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244608,
+      "old": 1936,
+      "va": 4214068
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244616,
+      "old": 1944,
+      "va": 4214072
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244624,
+      "old": 1952,
+      "va": 4214076
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244632,
+      "old": 1960,
+      "va": 4214080
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244640,
+      "old": 1968,
+      "va": 4214084
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244648,
+      "old": 1976,
+      "va": 4214088
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244656,
+      "old": 1984,
+      "va": 4214092
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244664,
+      "old": 1992,
+      "va": 4214096
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244672,
+      "old": 2000,
+      "va": 4214100
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244680,
+      "old": 2008,
+      "va": 4214104
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244688,
+      "old": 2016,
+      "va": 4214108
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244696,
+      "old": 2024,
+      "va": 4214112
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244704,
+      "old": 2032,
+      "va": 4214116
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244712,
+      "old": 2040,
+      "va": 4214120
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244720,
+      "old": 2048,
+      "va": 4214124
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244728,
+      "old": 2056,
+      "va": 4214128
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244736,
+      "old": 2064,
+      "va": 4214132
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244744,
+      "old": 2072,
+      "va": 4214136
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244752,
+      "old": 2080,
+      "va": 4214140
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244760,
+      "old": 2088,
+      "va": 4214144
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244768,
+      "old": 2096,
+      "va": 4214148
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244776,
+      "old": 2104,
+      "va": 4214152
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244784,
+      "old": 2112,
+      "va": 4214156
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244792,
+      "old": 2120,
+      "va": 4214160
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244800,
+      "old": 2128,
+      "va": 4214164
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244808,
+      "old": 2136,
+      "va": 4214168
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244816,
+      "old": 2144,
+      "va": 4214172
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244824,
+      "old": 2152,
+      "va": 4214176
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244832,
+      "old": 2160,
+      "va": 4214180
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244840,
+      "old": 2168,
+      "va": 4214184
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244848,
+      "old": 2176,
+      "va": 4214188
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244856,
+      "old": 2184,
+      "va": 4214192
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244864,
+      "old": 2192,
+      "va": 4214196
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244872,
+      "old": 2200,
+      "va": 4214200
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244880,
+      "old": 2208,
+      "va": 4214204
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244888,
+      "old": 2216,
+      "va": 4214208
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244896,
+      "old": 2224,
+      "va": 4214212
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244904,
+      "old": 2232,
+      "va": 4214216
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4214220
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244912,
+      "old": 2240,
+      "va": 4214224
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244920,
+      "old": 2248,
+      "va": 4214228
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244928,
+      "old": 2256,
+      "va": 4214232
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244936,
+      "old": 2264,
+      "va": 4214236
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244944,
+      "old": 2272,
+      "va": 4214240
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244952,
+      "old": 2280,
+      "va": 4214244
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244960,
+      "old": 2288,
+      "va": 4214248
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244968,
+      "old": 2296,
+      "va": 4214252
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244976,
+      "old": 2304,
+      "va": 4214256
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244984,
+      "old": 2312,
+      "va": 4214260
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4214264
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4214268
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5244992,
+      "old": 2320,
+      "va": 4214272
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4214276
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245000,
+      "old": 2328,
+      "va": 4214280
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4214284
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245008,
+      "old": 2336,
+      "va": 4214288
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245016,
+      "old": 2344,
+      "va": 4214292
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245024,
+      "old": 2352,
+      "va": 4214296
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4214300
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245032,
+      "old": 2360,
+      "va": 4214304
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245040,
+      "old": 2368,
+      "va": 4214308
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245048,
+      "old": 2376,
+      "va": 4214312
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4214316
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245056,
+      "old": 2384,
+      "va": 4214320
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245064,
+      "old": 2392,
+      "va": 4214324
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245072,
+      "old": 2400,
+      "va": 4214328
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245080,
+      "old": 2408,
+      "va": 4214332
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245088,
+      "old": 2416,
+      "va": 4214336
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245096,
+      "old": 2424,
+      "va": 4214340
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245104,
+      "old": 2432,
+      "va": 4214344
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245112,
+      "old": 2440,
+      "va": 4214348
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245120,
+      "old": 2448,
+      "va": 4214352
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245128,
+      "old": 2456,
+      "va": 4214356
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245136,
+      "old": 2464,
+      "va": 4214360
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245144,
+      "old": 2472,
+      "va": 4214364
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245152,
+      "old": 2480,
+      "va": 4214368
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245160,
+      "old": 2488,
+      "va": 4214372
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245168,
+      "old": 2496,
+      "va": 4214376
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245176,
+      "old": 2504,
+      "va": 4214380
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245184,
+      "old": 2512,
+      "va": 4214384
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245192,
+      "old": 2520,
+      "va": 4214388
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4214392
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245200,
+      "old": 2528,
+      "va": 4214396
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245208,
+      "old": 2536,
+      "va": 4214400
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245216,
+      "old": 2544,
+      "va": 4214404
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245224,
+      "old": 2552,
+      "va": 4214408
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245232,
+      "old": 2560,
+      "va": 4214412
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245240,
+      "old": 2568,
+      "va": 4214416
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245248,
+      "old": 2576,
+      "va": 4214420
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245256,
+      "old": 2584,
+      "va": 4214424
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245264,
+      "old": 2592,
+      "va": 4214428
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245272,
+      "old": 2600,
+      "va": 4214432
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245280,
+      "old": 2608,
+      "va": 4214436
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245288,
+      "old": 2616,
+      "va": 4214440
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245296,
+      "old": 2624,
+      "va": 4214444
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245304,
+      "old": 2632,
+      "va": 4214448
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245312,
+      "old": 2640,
+      "va": 4214452
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245320,
+      "old": 2648,
+      "va": 4214456
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245328,
+      "old": 2656,
+      "va": 4214460
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245336,
+      "old": 2664,
+      "va": 4214464
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5259663,
+      "old": 16991,
+      "va": 4214468
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245344,
+      "old": 2672,
+      "va": 4214472
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245352,
+      "old": 2680,
+      "va": 4214476
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245360,
+      "old": 2688,
+      "va": 4214480
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245368,
+      "old": 2696,
+      "va": 4214484
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245376,
+      "old": 2704,
+      "va": 4214488
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245384,
+      "old": 2712,
+      "va": 4214492
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245392,
+      "old": 2720,
+      "va": 4214496
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245400,
+      "old": 2728,
+      "va": 4214500
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245408,
+      "old": 2736,
+      "va": 4214504
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245416,
+      "old": 2744,
+      "va": 4214508
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245424,
+      "old": 2752,
+      "va": 4214512
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245432,
+      "old": 2760,
+      "va": 4214516
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245440,
+      "old": 2768,
+      "va": 4214520
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245448,
+      "old": 2776,
+      "va": 4214524
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5245456,
+      "old": 2784,
+      "va": 4214528
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5246568,
+      "old": 3896,
+      "va": 4213412
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5246612,
+      "old": 3940,
+      "va": 4213416
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5246640,
+      "old": 3968,
+      "va": 4213420
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5246668,
+      "old": 3996,
+      "va": 4213424
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5246692,
+      "old": 4020,
+      "va": 4213428
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5246716,
+      "old": 4044,
+      "va": 4213432
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5246740,
+      "old": 4068,
+      "va": 4213436
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5246764,
+      "old": 4092,
+      "va": 4213440
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5246788,
+      "old": 4116,
+      "va": 4213444
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5263978,
+      "old": 21306,
+      "va": 4219768
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5263965,
+      "old": 21293,
+      "va": 4219772
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5263952,
+      "old": 21280,
+      "va": 4219776
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5263939,
+      "old": 21267,
+      "va": 4219780
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5263926,
+      "old": 21254,
+      "va": 4219784
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5263913,
+      "old": 21241,
+      "va": 4219788
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5263900,
+      "old": 21228,
+      "va": 4219792
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5263900,
+      "old": 21228,
+      "va": 4219796
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265244,
+      "old": 22572,
+      "va": 4219800
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265300,
+      "old": 22628,
+      "va": 4219804
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265112,
+      "old": 22440,
+      "va": 4219808
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265396,
+      "old": 22724,
+      "va": 4219812
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265396,
+      "old": 22724,
+      "va": 4219816
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265396,
+      "old": 22724,
+      "va": 4219820
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265396,
+      "old": 22724,
+      "va": 4219824
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265396,
+      "old": 22724,
+      "va": 4219828
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265396,
+      "old": 22724,
+      "va": 4219832
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265396,
+      "old": 22724,
+      "va": 4219836
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265044,
+      "old": 22372,
+      "va": 4219840
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265396,
+      "old": 22724,
+      "va": 4219844
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265396,
+      "old": 22724,
+      "va": 4219848
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265396,
+      "old": 22724,
+      "va": 4219852
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265396,
+      "old": 22724,
+      "va": 4219856
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265268,
+      "old": 22596,
+      "va": 4219860
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265396,
+      "old": 22724,
+      "va": 4219864
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5265196,
+      "old": 22524,
+      "va": 4219868
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5307228,
+      "old": 64556,
+      "va": 4221184
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5307249,
+      "old": 64577,
+      "va": 4221188
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5307249,
+      "old": 64577,
+      "va": 4221192
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5307228,
+      "old": 64556,
+      "va": 4221196
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5307249,
+      "old": 64577,
+      "va": 4221200
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5307249,
+      "old": 64577,
+      "va": 4221204
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5307249,
+      "old": 64577,
+      "va": 4221208
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5307228,
+      "old": 64556,
+      "va": 4221212
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5307228,
+      "old": 64556,
+      "va": 4221216
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5307240,
+      "old": 64568,
+      "va": 4221220
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5307228,
+      "old": 64556,
+      "va": 4221224
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5307240,
+      "old": 64568,
+      "va": 4221228
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5307240,
+      "old": 64568,
+      "va": 4221232
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333388,
+      "old": 90716,
+      "va": 4231484
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231488
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231492
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333404,
+      "old": 90732,
+      "va": 4231496
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231500
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335784,
+      "old": 93112,
+      "va": 4231504
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231508
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231512
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231516
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231520
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333440,
+      "old": 90768,
+      "va": 4231524
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333356,
+      "old": 90684,
+      "va": 4231528
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231532
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333372,
+      "old": 90700,
+      "va": 4231536
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333420,
+      "old": 90748,
+      "va": 4231540
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231544
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333496,
+      "old": 90824,
+      "va": 4231548
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333512,
+      "old": 90840,
+      "va": 4231552
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333512,
+      "old": 90840,
+      "va": 4231556
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333512,
+      "old": 90840,
+      "va": 4231560
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333512,
+      "old": 90840,
+      "va": 4231564
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333512,
+      "old": 90840,
+      "va": 4231568
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333512,
+      "old": 90840,
+      "va": 4231572
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333512,
+      "old": 90840,
+      "va": 4231576
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333512,
+      "old": 90840,
+      "va": 4231580
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333512,
+      "old": 90840,
+      "va": 4231584
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231588
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231592
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231596
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231600
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231604
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231608
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231612
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231616
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231620
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231624
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231628
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5334060,
+      "old": 91388,
+      "va": 4231632
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231636
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335236,
+      "old": 92564,
+      "va": 4231640
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231644
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231648
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231652
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231656
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231660
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231664
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231668
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231672
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231676
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231680
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231684
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231688
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231692
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231696
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231700
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231704
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333952,
+      "old": 91280,
+      "va": 4231708
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231712
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231716
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231720
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231724
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231728
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231732
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231736
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231740
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231744
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231748
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335792,
+      "old": 93120,
+      "va": 4231752
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333548,
+      "old": 90876,
+      "va": 4231756
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5334060,
+      "old": 91388,
+      "va": 4231760
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5334608,
+      "old": 91936,
+      "va": 4231764
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335236,
+      "old": 92564,
+      "va": 4231768
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333539,
+      "old": 90867,
+      "va": 4231772
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333548,
+      "old": 90876,
+      "va": 4231776
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231780
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231784
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333532,
+      "old": 90860,
+      "va": 4231788
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231792
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231796
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333928,
+      "old": 91256,
+      "va": 4231800
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231804
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231808
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231812
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335828,
+      "old": 93156,
+      "va": 4231816
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231820
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333852,
+      "old": 91180,
+      "va": 4231824
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231828
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5335940,
+      "old": 93268,
+      "va": 4231832
+    },
+    {
+      "kind": "data_function_target",
+      "new": 5333952,
+      "old": 91280,
+      "va": 4231836
+    },
+    {
+      "kind": "absolute_text_operand",
+      "new": 5260240,
+      "old": 17568,
+      "patch_offset": 16893,
+      "va": 17100
+    },
+    {
+      "kind": "absolute_text_operand",
+      "new": 5260292,
+      "old": 17620,
+      "patch_offset": 17120,
+      "va": 17327
+    }
+  ],
+  "profile": {
+    "discovered_manifest": {
+      "data_symbol_ptrs": [],
+      "data_tables": [
+        [
+          4213448,
+          271
+        ],
+        [
+          4213412,
+          9
+        ],
+        [
+          4219768,
+          8
+        ],
+        [
+          4219800,
+          18
+        ],
+        [
+          4221184,
+          13
+        ],
+        [
+          4231484,
+          89
+        ]
+      ],
+      "operand_sites": [
+        [
+          17100,
+          1,
+          17568
+        ],
+        [
+          17327,
+          1,
+          17620
+        ]
+      ],
+      "symbol_count": 328,
+      "text_tables": []
+    },
+    "family": "native-static-svr3-i386",
+    "fingerprint_sha256": "66c441db201bdc9f93f310b669ab3da22191004fcf5d70ec40187dbeed054288",
+    "id": "pgc-as860-native-svr3-i386",
+    "layout": {
+      "bss_size": 6592,
+      "bss_start": 4234372,
+      "data_size": 37764,
+      "data_start": 4196608,
+      "entry": 212,
+      "text_size": 100400,
+      "text_start": 208
+    },
+    "relocation": {
+      "delta": 5242672,
+      "new_text_va": 5242880
+    },
+    "traps": [
+      {
+        "name": "exit",
+        "pc": 272,
+        "selector": 7,
+        "syscall": 1
+      },
+      {
+        "name": "time",
+        "pc": 87641,
+        "selector": 7,
+        "syscall": 13
+      },
+      {
+        "name": "access",
+        "pc": 89841,
+        "selector": 7,
+        "syscall": 33
+      },
+      {
+        "name": "lseek",
+        "pc": 89977,
+        "selector": 7,
+        "syscall": 19
+      },
+      {
+        "name": "unlink",
+        "pc": 90045,
+        "selector": 7,
+        "syscall": 10
+      },
+      {
+        "name": "close",
+        "pc": 99025,
+        "selector": 7,
+        "syscall": 6
+      },
+      {
+        "name": "ioctl",
+        "pc": 99241,
+        "selector": 7,
+        "syscall": 54
+      },
+      {
+        "name": "open",
+        "pc": 100353,
+        "selector": 7,
+        "syscall": 5
+      },
+      {
+        "name": "read",
+        "pc": 100373,
+        "selector": 7,
+        "syscall": 3
+      },
+      {
+        "name": "brk",
+        "pc": 100430,
+        "selector": 7,
+        "syscall": 17
+      },
+      {
+        "name": "write",
+        "pc": 100537,
+        "selector": 7,
+        "syscall": 4
+      },
+      {
+        "name": "getpid",
+        "pc": 100557,
+        "selector": 7,
+        "syscall": 20
+      },
+      {
+        "name": "exit",
+        "pc": 100594,
+        "selector": 7,
+        "syscall": 1
+      }
+    ]
+  },
+  "runtime": {
+    "implemented_outer_syscalls": "exit/read/write/open/close/creat/unlink/brk/stat/lseek/getpid/access/ioctl/signal/mkdir/fork/wait/execve",
+    "process_calls": "generic synchronous fork/exec/wait virtualization; Unix basename X resolves to X-pe.exe then X.exe",
+    "selector15": "diagnostic abort; asynchronous signal delivery not implemented"
+  },
+  "status": "BUILD_STATIC_VERIFIED_RUNTIME_UNTESTED_R4_NATIVE_PROFILE"
+}

@@ -1,0 +1,15 @@
+LD860 PE R1 reproducibility
+
+1. Build:
+   python3 tools/build_ld860_r1.py /path/to/original/ld860 --outdir artifacts --builddir build
+
+2. Independent replay:
+   python3 probe_link_r1.py
+
+3. Expected ld860-r1.exe SHA256:
+   6ae563bf61ad6f5f2aab662b92b6c9b7257e9a42d485ab4bdacef1334febad09
+
+4. Expected a.out.oracle SHA256:
+   85b2531a8501e67731703cc2856515080338795d221b00c2985e83298e277528
+
+The builder uses 32-bit freestanding GCC/assembler/linker objects and emits the PE deterministically. A second clean build was byte-identical.

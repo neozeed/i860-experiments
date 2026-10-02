@@ -1,0 +1,304 @@
+[
+  {
+    "args": [
+      "exit860"
+    ],
+    "expected_r16": 0,
+    "result": {
+      "exit": 0,
+      "target_r16": 0,
+      "pc": "0x68000020",
+      "api_calls": {
+        "VirtualProtect": 1,
+        "GetStdHandle": 3,
+        "SetUnhandledExceptionFilter": 1,
+        "GetEnvironmentVariableA": 1,
+        "GetEnvironmentStringsA": 1,
+        "WriteFile": 4,
+        "GetCommandLineA": 1,
+        "CreateFileA": 2,
+        "ReadFile": 6,
+        "SetFilePointer": 3,
+        "CloseHandle": 1,
+        "ExitProcess": 1
+      }
+    }
+  },
+  {
+    "args": [
+      "hello860"
+    ],
+    "expected_r16": 0,
+    "result": {
+      "exit": 0,
+      "target_r16": 0,
+      "pc": "0x68000020",
+      "api_calls": {
+        "VirtualProtect": 1,
+        "GetStdHandle": 3,
+        "SetUnhandledExceptionFilter": 1,
+        "GetEnvironmentVariableA": 1,
+        "GetEnvironmentStringsA": 1,
+        "WriteFile": 5,
+        "GetCommandLineA": 1,
+        "CreateFileA": 2,
+        "ReadFile": 6,
+        "SetFilePointer": 3,
+        "CloseHandle": 1,
+        "ExitProcess": 1
+      }
+    }
+  },
+  {
+    "args": [
+      "-d",
+      "exit860"
+    ],
+    "expected_r16": 0,
+    "result": {
+      "exit": 0,
+      "target_r16": 0,
+      "pc": "0x68000020",
+      "api_calls": {
+        "VirtualProtect": 1,
+        "GetStdHandle": 3,
+        "SetUnhandledExceptionFilter": 1,
+        "GetEnvironmentVariableA": 1,
+        "GetEnvironmentStringsA": 1,
+        "WriteFile": 7,
+        "GetCommandLineA": 1,
+        "CreateFileA": 3,
+        "ReadFile": 19,
+        "SetFilePointer": 9,
+        "GetFileAttributesA": 1,
+        "CloseHandle": 2,
+        "ExitProcess": 1
+      }
+    }
+  },
+  {
+    "args": [
+      "umod-0-7"
+    ],
+    "expected_r16": 0,
+    "result": {
+      "exit": 0,
+      "target_r16": 0,
+      "pc": "0x68000020",
+      "api_calls": {
+        "VirtualProtect": 1,
+        "GetStdHandle": 3,
+        "SetUnhandledExceptionFilter": 1,
+        "GetEnvironmentVariableA": 1,
+        "GetEnvironmentStringsA": 1,
+        "WriteFile": 4,
+        "GetCommandLineA": 1,
+        "CreateFileA": 2,
+        "ReadFile": 6,
+        "SetFilePointer": 3,
+        "CloseHandle": 1,
+        "ExitProcess": 1
+      }
+    }
+  },
+  {
+    "args": [
+      "umod-11-5"
+    ],
+    "expected_r16": 2,
+    "result": {
+      "exit": 2,
+      "target_r16": 2,
+      "pc": "0x68000020",
+      "api_calls": {
+        "VirtualProtect": 1,
+        "GetStdHandle": 3,
+        "SetUnhandledExceptionFilter": 1,
+        "GetEnvironmentVariableA": 1,
+        "GetEnvironmentStringsA": 1,
+        "WriteFile": 4,
+        "GetCommandLineA": 1,
+        "CreateFileA": 2,
+        "ReadFile": 6,
+        "SetFilePointer": 3,
+        "CloseHandle": 1,
+        "ExitProcess": 1
+      }
+    }
+  },
+  {
+    "args": [
+      "umod-42f-1ce"
+    ],
+    "expected_r16": 147,
+    "result": {
+      "exit": 147,
+      "target_r16": 147,
+      "pc": "0x68000020",
+      "api_calls": {
+        "VirtualProtect": 1,
+        "GetStdHandle": 3,
+        "SetUnhandledExceptionFilter": 1,
+        "GetEnvironmentVariableA": 1,
+        "GetEnvironmentStringsA": 1,
+        "WriteFile": 4,
+        "GetCommandLineA": 1,
+        "CreateFileA": 2,
+        "ReadFile": 6,
+        "SetFilePointer": 3,
+        "CloseHandle": 1,
+        "ExitProcess": 1
+      }
+    }
+  },
+  {
+    "args": [
+      "umod-5-11"
+    ],
+    "expected_r16": 5,
+    "result": {
+      "exit": 5,
+      "target_r16": 5,
+      "pc": "0x68000020",
+      "api_calls": {
+        "VirtualProtect": 1,
+        "GetStdHandle": 3,
+        "SetUnhandledExceptionFilter": 1,
+        "GetEnvironmentVariableA": 1,
+        "GetEnvironmentStringsA": 1,
+        "WriteFile": 4,
+        "GetCommandLineA": 1,
+        "CreateFileA": 2,
+        "ReadFile": 6,
+        "SetFilePointer": 3,
+        "CloseHandle": 1,
+        "ExitProcess": 1
+      }
+    }
+  },
+  {
+    "args": [
+      "umod-7-1"
+    ],
+    "expected_r16": 0,
+    "result": {
+      "exit": 0,
+      "target_r16": 0,
+      "pc": "0x68000020",
+      "api_calls": {
+        "VirtualProtect": 1,
+        "GetStdHandle": 3,
+        "SetUnhandledExceptionFilter": 1,
+        "GetEnvironmentVariableA": 1,
+        "GetEnvironmentStringsA": 1,
+        "WriteFile": 4,
+        "GetCommandLineA": 1,
+        "CreateFileA": 2,
+        "ReadFile": 6,
+        "SetFilePointer": 3,
+        "CloseHandle": 1,
+        "ExitProcess": 1
+      }
+    }
+  },
+  {
+    "args": [
+      "umod-80000000-7"
+    ],
+    "expected_r16": 2,
+    "result": {
+      "exit": 2,
+      "target_r16": 2,
+      "pc": "0x68000020",
+      "api_calls": {
+        "VirtualProtect": 1,
+        "GetStdHandle": 3,
+        "SetUnhandledExceptionFilter": 1,
+        "GetEnvironmentVariableA": 1,
+        "GetEnvironmentStringsA": 1,
+        "WriteFile": 4,
+        "GetCommandLineA": 1,
+        "CreateFileA": 2,
+        "ReadFile": 6,
+        "SetFilePointer": 3,
+        "CloseHandle": 1,
+        "ExitProcess": 1
+      }
+    }
+  },
+  {
+    "args": [
+      "umod-fffffffe-ffffffff"
+    ],
+    "expected_r16": 4294967294,
+    "result": {
+      "exit": 4294967294,
+      "target_r16": 4294967294,
+      "pc": "0x68000020",
+      "api_calls": {
+        "VirtualProtect": 1,
+        "GetStdHandle": 3,
+        "SetUnhandledExceptionFilter": 1,
+        "GetEnvironmentVariableA": 1,
+        "GetEnvironmentStringsA": 1,
+        "WriteFile": 4,
+        "GetCommandLineA": 1,
+        "CreateFileA": 2,
+        "ReadFile": 6,
+        "SetFilePointer": 3,
+        "CloseHandle": 1,
+        "ExitProcess": 1
+      }
+    }
+  },
+  {
+    "args": [
+      "umod-ffffffff-3"
+    ],
+    "expected_r16": 0,
+    "result": {
+      "exit": 0,
+      "target_r16": 0,
+      "pc": "0x68000020",
+      "api_calls": {
+        "VirtualProtect": 1,
+        "GetStdHandle": 3,
+        "SetUnhandledExceptionFilter": 1,
+        "GetEnvironmentVariableA": 1,
+        "GetEnvironmentStringsA": 1,
+        "WriteFile": 4,
+        "GetCommandLineA": 1,
+        "CreateFileA": 2,
+        "ReadFile": 6,
+        "SetFilePointer": 3,
+        "CloseHandle": 1,
+        "ExitProcess": 1
+      }
+    }
+  },
+  {
+    "args": [
+      "umod-ffffffff-80000000"
+    ],
+    "expected_r16": 2147483647,
+    "result": {
+      "exit": 2147483647,
+      "target_r16": 2147483647,
+      "pc": "0x68000020",
+      "api_calls": {
+        "VirtualProtect": 1,
+        "GetStdHandle": 3,
+        "SetUnhandledExceptionFilter": 1,
+        "GetEnvironmentVariableA": 1,
+        "GetEnvironmentStringsA": 1,
+        "WriteFile": 4,
+        "GetCommandLineA": 1,
+        "CreateFileA": 2,
+        "ReadFile": 6,
+        "SetFilePointer": 3,
+        "CloseHandle": 1,
+        "ExitProcess": 1
+      }
+    }
+  }
+]

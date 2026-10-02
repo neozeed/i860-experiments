@@ -1,0 +1,228 @@
+.if n .ds tM (tm)
+.if t .ds tM \u\s-3TM\s+3\d
+.TH "LD860" 1 "2/7/1992" "Release 3.0" "iPSC\*R/860 System"
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.\" This file created by mif2man for "ld860"
+.\" %M% %I% %D% %U%
+.ps 10
+.nr Ll \n(.l
+.fi
+.na
+.nh
+.SH NAME
+LD860 - Link editor for iPSC\*R/860\fR\fR\fR\fR\& object files. 
+.\" End Summary
+.SH SYNOPSIS
+.br
+\&\fBld860\fR\fR\& [ \fR\fIoptions\fI\fR\& ] \fR\fIfilename\fI\fR\
+\& ... 
+.SH ARGUMENTS 
+.ta 1.0i 5.9i
+.HP 1i
+\fR\fIfilename\fI\fR\& 	\h'-\w' 'u' The name of the iPSC/860\& object file or library. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.LP
+You may specify the following \fR\fIoptions\fI\fR\& in any order:
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-o\fR\fR\& \fR\fIobjfile\fI\fR\& 	\h'-\w' 'u' Put the output object file in \fR\fI\
+objfile\fI\fR\&. If this option is not specified, the default object \
+file name is \fR\fIa.out\fI\fR\&. If a file with the same name already exists, it is deleted.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-e\fR\fR\& \fR\fIsymbol\fI\fR\& 	\h'-\w' 'u' Specify \fR\fI\
+symbol\fI\fR\& as the entry-point. The default entry-point is \fR\fR\
+\&_\|\&_start\fR\fR\&. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-v\fR\fR\& 	\h'-\w' 'u' Ignored. Accepted for backwards compatibility.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-y\fR\fR\& 	\h'-\w' 'u' Ignored. Accepted for backwards compatibility.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-contig\fR\fR\& 	\h'-\w' 'u' Force \fB\&.text\fR\fR\& and \fB\
+\&.data\fR\fR\& sections from adjacent modules to be contiguous when \
+combined, instead of aligning \fB\&.text\fR\fR\& sections on 32-byte boundaries, and \fB\
+\&.data\fR\fR\& sections are aligned on 16-byte boundaries. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-intel\fR\fR\& 	\h'-\w' 'u' Use Intel specified relocation types for COFF.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-aix\fR\fR\& 	\h'-\w' 'u' Use Intel-specified relocation types for COFF.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-T\fR\fR\& \fR\fIinteger\fI\fR\& 	\h'-\w' 'u' Specify the address at which the \fB\
+\&.text\fR\fR\& section is to be loaded. The default is \&0xF0400000.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-D\fR\fR\& \fR\fIinteger\fI\fR\& 	\h'-\w' 'u' Specify the length of the \fB\
+\&.data\fR\fR\& section to be \fR\fIinteger\fI\fR\& bytes. The \fB\
+\&.data\fR\fR\& section is padded with zero to the specified length, which may not be less than the summed \
+length derived from the object modules.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-d\fR\fR\& \fR\fIinteger\fI\fR\& 	\h'-\w' 'u' Specify the address at which the \fB\
+\&.data\fR\fR\& section is to be loaded. The default is \&0x1000.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-u\fR\fR\& \fR\fIsymbol\fI\fR\& 	\h'-\w' 'u' Initialize the symbol table with \fR\fI\
+symbol\fI\fR\&. The linker considers \fR\fIsymbol\fI\fR\& to be \
+undefined.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-t\fR\fR\& 	\h'-\w' 'u' Display the name of each object file or library as it is processed.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-M\fR\fR\&,\fB\&-Mx\fR\fR\&,\fB\&-Mw\fR\fR\&,\fB\&-Mxw
+.br
+\fR\fRIgnored. Accepted for backwards compatibility.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-m\fR\fR\& 	\h'-\w' 'u' Ignored. Accepted for backwards compatibility.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-s\fR\fR\& 	\h'-\w' 'u' Strip all symbols from the output object file.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-r\fR\fR\& 	\h'-\w' 'u' Retain relocation entries in the output object file, to allow incremental linking. \
+The output object file produced with \fB\&-r\fR\fR\& can be used as an input object file in \
+another link. When \fB\&-r\fR\fR\& is used, \fB\&-o\fR\fR\& must also be specified.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-B\fR\fR\& \fR\fIinteger\fI\fR\& 	\h'-\w' 'u' Specifies the address to use for the base of the \fB\
+\&.bss\fR\fR\& section for all following object modules. This option may be used multiple times, and affects only objects that \
+appear after the option in the command line.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-p\fR\fR\& 	\h'-\w' 'u' Align the \fB\&.data\fR\fR\& section of the following module on a page boundary. This option \
+may be repeated as necessary, and applies only to the next object file.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-k\fR\fR\& 	\h'-\w' 'u' Start the \fB\&.text\fR\fR\& and \fB\
+\&.data\fR\fR\& sections exactly at the addresses specified by the \fB\
+\&-T\fR\fR\& and \fB\&-d\fR\fR\& options (or at the defaults if the options are not given) without performing the \
+normal modifications to those addresses to make the file pageable.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-i386\fR\fR\& 	\h'-\w' 'u' Put the magic number for Intel386\*(tM\fR\fR\fR\fR\
+\& COFF files in the output file, instead of the magic number for i860\*(tM\fR\fR\fR\fR\
+\& COFF files.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-quiet\fR\fR\& 	\h'-\w' 'u' Ignored. Accepted for backwards compatibility.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-dos\fR\fR\& 	\h'-\w' 'u' Linker is being used on an MS-DOS system.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-f\fR\fR\& \fR\fIfilelist\fI\fR\& 	\h'-\w' 'u' Read in a list of files to be linked from file \fR\fI\
+filelist\fI\fR\&. Names in the file can be separated by a comma, a space, a tab, or a linefeed. This option may be used \
+multiple times.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-be\fR\fR\& 	\h'-\w' 'u' Process all data defined in \fB\
+\&.data\fR\fR\& sections as ``big-endian'' data (high-order byte \
+first). Forces the \fB\&-bess\fR\fR\& option, as well.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-bess\fR\fR\& 	\h'-\w' 'u' COFF headers and control structures are written ``big-endian.''
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-qa\fR\fR\& 	\h'-\w' 'u' Set COFF timestamp to 0.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.SH DESCRIPTION
+.LP
+Use\fB\& ld860\fR\fR\& to link-edit the named file(s). 
+.LP
+Object files and libraries are processed in the order specified.
+.LP
+Libraries are searched for unsatisfied externals when they are processed, and are not reopened to \
+satisfy any symbols that might not have been satisfied.
+.LP
+The \fB\&-r\fR\fR\& option requires the \fB\&-o\fR\fR\& option.
+.LP
+If the \fB\&-r\fR\fR\& and the \fB\&-s\fR\fR\& options are used together, the \fB\
+\&-s\fR\fR\& option is ignored.
+.LP
+If the \fB\&-r\fR\fR\& and the \fB\&-e\fR\fR\& options are used together, the \fB\
+\&-e\fR\fR\& option is ignored.
+.LP
+If the \fB\&-f\fR\fR\& option is used, the \fB\&-B\fR\fR\& and \fB\
+\&-p\fR\fR\& options are applied as if the object file names appeared in place \
+of the \fB\&-f\fR\fR\& option.
+.LP
+The default \fR\fIcrt0.o\fI\fR\& (the initial object file) has \fR\fR\
+ld$start\fR\fR\& as its entry point, and the compiler drivers \
+\&(\fBicc\fR\fR\& and \fBif77\fR\fR\&) always use \fR\fR\&-e ld$start\fR\fR\
+\& in the command lines they synthesize for \fBld860\fR\fR\&.
+.LP
+The compiler drivers always override the beginning address of the \fB\
+\&.text\fR\fR\& section to be 0 by putting \fR\fR\&-T 0x0\fR\fR\
+\& in the synthesized command line.
+.LP
+The compiler drivers always override the beginning address of the \fB\
+\&.data\fR\fR\& section to be 0x10000000 by putting \fR\fR\&-d 0x10000000\fR\fR\
+\& in the synthesized command line.
+.SH SEE ALSO
+.LP
+\fBar860\fR\fR\&, \fBas860\fR\fR\&, \fBdump860\fR\fR\&, \fBicc\fR\fR\
+\&, \fBif77\fR\fR\&, \fBnm860\fR\fR\&, \fBsize860\fR\fR\&, \fB\
+strip860\fR\fR\& 
+.LP
+\fR\fR
+.LP
+.LP

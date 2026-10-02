@@ -1,0 +1,7 @@
+CLEAN_EXIT (4030783780, 1205925888, 175353, 1, 0, 0, 30208, 63936, 0)
+TRAPS [(1, 1), (3, 6), (4, 73), (5, 7), (6, 10), (13, 1), (15, 1), (17, 7), (19, 19), (57, 1)]
+FILE_EVENTS Counter({'lseek': 19, 'open': 7, 'close': 7, 'read': 6, 'write': 1, 'chmod': 1})
+FILES [('gcd', 1219, '71e87529fe20fd1d198c1620bf93ab280c8ecb82819d57c6a65947beb407f477'), ('gcd.o', 597, 'ecf999bfb290006137578e83a05a690649b45fa52601bc36a1c896ca2e79221e'), ('start.o', 554, 'ffc0c402b7388201c6658a40dccae64b63d9e5d29dfbf8d9bf30dbe70e3c5c2e'), ('umodsi3.o', 345, '763953fa13e08ddd1f30be9d44e3c28ab81fda110519a35b34df26044dedf84b')]
+CONSOLE b'i860(TM) LINKER, Release N1.3\nCopyright (C) 1989,1990 Intel Corporation\n'
+GCD_OUT 1219 71e87529fe20fd1d198c1620bf93ab280c8ecb82819d57c6a65947beb407f477 4d010300
+PASS GCC 1.40 objects linked to i860 COFF gcd

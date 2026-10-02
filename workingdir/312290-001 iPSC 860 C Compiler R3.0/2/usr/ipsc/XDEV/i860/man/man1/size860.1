@@ -1,0 +1,75 @@
+.if n .ds tM (tm)
+.if t .ds tM \u\s-3TM\s+3\d
+.TH "SIZE860" 1 "2/7/1992" "Release 3.0" "iPSC\*R/860 System"
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.\" This file created by mif2man for "size860"
+.\" %M% %I% %D% %U%
+.ps 10
+.nr Ll \n(.l
+.fi
+.na
+.nh
+.SH NAME
+SIZE860 - Displays section sizes of iPSC\*R/860\fR\fR\fR\fR\& object files. 
+.\" End Summary
+.SH SYNOPSIS
+.br
+\&\fBsize860\fR\fR\& [ \fR\fIoptions\fI\fR\& ] \fR\fIfilenames\fI\fR\
+\& 
+.SH ARGUMENTS 
+.ta 1.0i 5.9i
+.HP 1i
+\fR\fIfilename\fI\fR\& 	\h'-\w' 'u' The name of the iPSC/860\& object file. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.LP
+You may specify the following \fR\fIoptions\fI\fR\& in any order:
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-o\fR\fR\& 	\h'-\w' 'u' Display sizes in octal.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-x\fR\fR\& 	\h'-\w' 'u' Display sizes in hexadecimal.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-d\fR\fR\& 	\h'-\w' 'u' Display sizes in decimal (default).
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-n\fR\fR\& 	\h'-\w' 'u' Display the sizes of non-loading sections, as well.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-f\fR\fR\& 	\h'-\w' 'u' Full output.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-V\fR\fR\& 	\h'-\w' 'u' Display the tool banner (tool name, version, etc.).
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.SH DESCRIPTION
+.LP
+Use \fBsize860\fR\fR\& to display the section sizes of the named files. 
+.LP
+Note that the total size of an executable object may be greater than or less than the total of the sizes \
+of all the compiled objects that make up the executable. This is because the true size of the BSS \
+section is not known until after a set of objects is loaded, and because padding is done by \fB\
+ld860\fR\fR\& on other sections. 
+.SH SEE ALSO
+.LP
+\fBas860\fR\fR\&, \fBar860\fR\fR\&, \fBdump860\fR\fR\&, \fBicc\fR\fR\
+\&, \fBif77\fR\fR\&, \fBld860\fR\fR\&, \fBnm860\fR\fR\&, \fBstrip860\fR\fR\
+\& 
+.LP
+\fR\fR
+.LP
+.LP
+\fR\fR
+.LP

@@ -1,0 +1,14 @@
+Run from package root: sim860-i386-pe.exe examples\gcd\gcd-fixed
+Live Windows PASS on Intel simulator 1.1/R4S and separate N1.3: 2026-10-02.
+Source gcd.c is the supplied unsigned Euclidean GCD loop.
+start-fixed.s replaces subu/bc with xor/bnc for an equality check.
+gcd-fixed is the supplied linked gcd with only two instruction words patched:
+file 0xD4: 8A208000 -> F2208000; file 0xD8: 7000000A -> 7800000A.
+The original binary is retained as gcd-original; it deliberately reports FAIL
+on R4S even though GCD returns 21. Do not use it as the positive smoke test.
+Supplied umodsi3.o, umodsi3.s and uimod.o are retained as provenance. The supplied
+assembly uses a different dialect from the driver-generated reentrant fixture;
+no claim is made that this source alone rebuilds the supplied object byte-for-byte.
+This package lacks the original GCC/linker invocation and complete SDK, so the
+linked sample is reproducible by the checked two-word patch, not a claimed full
+source rebuild. Generic conversion of the host tools is separately reproducible.

@@ -1,0 +1,341 @@
+{
+  "i860_cpu_ld860_r1": {
+    "additional_cpu_ops": [
+      "ixfr",
+      "fxfr",
+      "fmlow.dd",
+      "bla",
+      "fld.l/d/q",
+      "fst.l/d/q",
+      "fiadd.ss/fmov.ss",
+      "fiadd.dd/fmov.dd",
+      "fadd.dd",
+      "fsub.dd",
+      "frcp.dd",
+      "fmul.dd",
+      "ftrunc.dd"
+    ],
+    "control_flow_fixes": [
+      "relative call writes r1 after its delay slot",
+      "bc.t/bnc.t execute delay slot only when taken",
+      "bla branches on old LCC and installs comparison-derived new LCC after delay slot"
+    ],
+    "file_personality": "small guest fds 3..63 backed by private Win32 HANDLE table; raw CreateFileA/ReadFile/WriteFile/SetFilePointer; no CRT text translation",
+    "floating_registers": 32,
+    "loop_link_oracle": {
+      "chmod_traps": 1,
+      "entry": 4030726336,
+      "exit_pc": 4030783780,
+      "exit_status": 0,
+      "input_name": "loop.o",
+      "input_sha256": "a4ace9cbd76ef6b0ee508317d0e2bf54ab076827039c29ae7b151347bcc5b58b",
+      "instruction_count_including_exit": 76739,
+      "output_magic": 333,
+      "output_name": "a.out",
+      "output_relocations": 0,
+      "output_sha256": "85b2531a8501e67731703cc2856515080338795d221b00c2985e83298e277528",
+      "output_size": 426,
+      "text_size": 32
+    },
+    "noarg_regression": {
+      "close_traps": 3,
+      "exit_pc": 4030783780,
+      "exit_status": 3,
+      "instruction_count_including_exit": 9461,
+      "output": "i860(TM) LINKER, Release N1.3\nCopyright (C) 1989,1990 Intel Corporation\nUsage: ld860-r1.exe [ options ] file ...\n",
+      "signal_traps": 0,
+      "write_bytes": 113,
+      "write_traps": 113
+    },
+    "stack_guest": 1048576,
+    "stack_size": 65536,
+    "startup": "r16=argc, r17=argv, r18=envp; guest argv copied from run860 argv[1..]; guest envp contains PATH=.",
+    "stat_layout": "SVR3 compact 32-byte guest struct stat with deterministic 1990 timestamps",
+    "step_limit": 1000000,
+    "temp_paths": "/usr/tmp and /tmp directory probes map to the current private working namespace; temporary basenames stay local",
+    "trace_limit": 24
+  },
+  "i860_syscalls_implemented": {
+    "1": "exit",
+    "10": "unlink",
+    "13": "time",
+    "15": "chmod (validate target + accept Unix mode; Win32 execute bit not applicable)",
+    "17": "break/brk",
+    "18": "stat",
+    "19": "lseek",
+    "28": "fstat",
+    "3": "read",
+    "4": "write",
+    "48": "signal (common personality stub-success; not linked/reached by LD860 N1.3)",
+    "5": "open",
+    "57": "utssys/uname",
+    "6": "close",
+    "8": "creat"
+  },
+  "imports": [
+    "GetStdHandle",
+    "WriteFile",
+    "ExitProcess",
+    "GetCommandLineA",
+    "GetFileAttributesA",
+    "CreateFileA",
+    "ReadFile",
+    "CloseHandle",
+    "DeleteFileA",
+    "GetFileSize",
+    "SetFilePointer",
+    "VirtualProtect",
+    "VirtualAlloc",
+    "GetEnvironmentVariableA"
+  ],
+  "input": {
+    "name": "ld860.original",
+    "sha256": "ee296b923cbf17af83e8b5dc4d5a47b2e24a2b713a98d271b891fefd5cebe0f4",
+    "size": 108902
+  },
+  "layout": {
+    "gate15_va": 4199312,
+    "gate7_va": 4198750,
+    "host_data_va": 4214784,
+    "host_va": 4198400,
+    "image_base": 4194304,
+    "old_data_storage": "PE header page at file/RVA offset 0x958",
+    "old_data_va": 4196696,
+    "old_text_va": 208,
+    "relocated_entry_va": 4222980,
+    "relocated_text_va": 4222976,
+    "text_delta": 4222768
+  },
+  "milestone": "LD860-PE-R1",
+  "outer_svr3_personality": "preserves the established wrapper-side access/execve/run860 handoff and narrow historical syscall veneer",
+  "output": {
+    "checks": [
+      {
+        "name": "original-wrapper-preserved",
+        "pass": true
+      },
+      {
+        "name": "i860-payload-preserved",
+        "pass": true
+      },
+      {
+        "name": "original-data-at-exact-va-in-header",
+        "pass": true
+      },
+      {
+        "name": "host-code-not-writable",
+        "pass": true
+      },
+      {
+        "name": "host-data-not-executable",
+        "pass": true
+      },
+      {
+        "name": "patched-text-same-size",
+        "pass": true
+      },
+      {
+        "name": "no-lcall-7-remains",
+        "pass": true
+      },
+      {
+        "name": "no-lcall-15-remains",
+        "pass": true
+      }
+    ],
+    "name": "ld860-r1.exe",
+    "sections": {
+      ".hdata": {
+        "chars": 3221225536,
+        "name": ".hdata",
+        "raw_offset": 17408,
+        "raw_size": 7168,
+        "rva": 20480,
+        "vsize": 7136
+      },
+      ".host": {
+        "chars": 1610612768,
+        "name": ".host",
+        "raw_offset": 4096,
+        "raw_size": 13312,
+        "rva": 4096,
+        "vsize": 13155
+      },
+      ".i860": {
+        "chars": 1073741888,
+        "name": ".i860",
+        "raw_offset": 27648,
+        "raw_size": 104960,
+        "rva": 36864,
+        "vsize": 104640
+      },
+      ".idata": {
+        "chars": 1073741888,
+        "name": ".idata",
+        "raw_offset": 27136,
+        "raw_size": 512,
+        "rva": 32768,
+        "vsize": 401
+      },
+      ".meta": {
+        "chars": 1073741888,
+        "name": ".meta",
+        "raw_offset": 132608,
+        "raw_size": 7168,
+        "rva": 143360,
+        "vsize": 6925
+      },
+      ".orig386": {
+        "chars": 1073741888,
+        "name": ".orig386",
+        "raw_offset": 139776,
+        "raw_size": 4608,
+        "rva": 151552,
+        "vsize": 4262
+      },
+      ".svtext": {
+        "chars": 1610612768,
+        "name": ".svtext",
+        "raw_offset": 24576,
+        "raw_size": 2560,
+        "rva": 28672,
+        "vsize": 2184
+      }
+    },
+    "sha256": "19025fd37d332fa6d02e26e5216b850626cc869604d381b910f9e227c3269b0b",
+    "size": 144384,
+    "size_of_image": 159744
+  },
+  "patches": [
+    {
+      "kind": "abs_code_ptr",
+      "new_target": 4224272,
+      "old_target": 1504,
+      "old_va": 1347,
+      "text_offset": 1139
+    },
+    {
+      "kind": "abs_code_ptr",
+      "new_target": 4225136,
+      "old_target": 2368,
+      "old_va": 2270,
+      "text_offset": 2062
+    },
+    {
+      "kind": "abs_code_ptr",
+      "new_target": 4225136,
+      "old_target": 2368,
+      "old_va": 2290,
+      "text_offset": 2082
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4223040,
+      "old_va": 272,
+      "selector": 7,
+      "target_va": 4198750,
+      "text_offset": 64
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4224297,
+      "old_va": 1529,
+      "selector": 7,
+      "target_va": 4198750,
+      "text_offset": 1321
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4224313,
+      "old_va": 1545,
+      "selector": 7,
+      "target_va": 4198750,
+      "text_offset": 1337
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4224477,
+      "old_va": 1709,
+      "selector": 7,
+      "target_va": 4198750,
+      "text_offset": 1501
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4224497,
+      "old_va": 1729,
+      "selector": 7,
+      "target_va": 4198750,
+      "text_offset": 1521
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4224509,
+      "old_va": 1741,
+      "selector": 7,
+      "target_va": 4198750,
+      "text_offset": 1533
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4224729,
+      "old_va": 1961,
+      "selector": 7,
+      "target_va": 4198750,
+      "text_offset": 1753
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4224925,
+      "old_va": 2157,
+      "selector": 7,
+      "target_va": 4198750,
+      "text_offset": 1949
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4224945,
+      "old_va": 2177,
+      "selector": 7,
+      "target_va": 4198750,
+      "text_offset": 1969
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4225017,
+      "old_va": 2249,
+      "selector": 7,
+      "target_va": 4198750,
+      "text_offset": 2041
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4225122,
+      "old_va": 2354,
+      "selector": 7,
+      "target_va": 4198750,
+      "text_offset": 2146
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4225139,
+      "old_va": 2371,
+      "selector": 15,
+      "target_va": 4199312,
+      "text_offset": 2163
+    }
+  ],
+  "policy": "LD860 R1 implements the complete statically linked i860 SVR3 syscall surface used by Intel LD860 N1.3, binary-safe Win32 file I/O with small guest descriptor numbers, historical temp-path compatibility, and the additional i860 CPU semantics actually reached by a real object link. The loop.o oracle must produce a real linked i860 COFF executable a.out and exit status 0.",
+  "run860_shim": {
+    "behavior": "synthetic access(run860) success; execve(run860) parses/materializes embedded i860 COFF, allocates low guest memory and stack, copies wrapper-supplied arguments, and starts bounded i860 execution",
+    "payload_size": 104640,
+    "payload_va": 4231168
+  },
+  "split": {
+    "payload_offset": 4262,
+    "payload_sha256": "03515c06528a0268f68b5f934c3e601258c0fefc59ee3f81ccfcf7450143c349",
+    "payload_size": 104640,
+    "wrapper_sha256": "9c0007b43b93b13f1f06f75832c61a44c5276e59860113ebdc6b04896b784023",
+    "wrapper_size": 4262
+  }
+}

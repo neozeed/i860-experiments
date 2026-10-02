@@ -1,0 +1,7 @@
+preserved c745fc01000000 93
+preserved 81eca0010000 1
+preserved f746fc01000000 1
+R4N corrupt stack store reproduced; R4O restores original encoding
+All 2167 previous dispatch slots preserved; 6 additional proven slots
+PASS: R4O static audit {'syscall_gate': 14, 'data_function_target': 2173, 'absolute_text_operand': 14}
+Native Windows execution has NOT been tested here.

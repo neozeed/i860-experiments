@@ -1,0 +1,20 @@
+[
+  {
+    "case": "gcd-original",
+    "output": "SVR3 SIM860 i386 R4S: entering original UNIX System V/386 wrapper\ni860(TM) SIMULATOR/DEBUGGER, Release 1.1\nCopyright (C) 1989, Intel Corporation\nGCC i860 GCD FAIL\n<< Process terminated, returned value: 1 >>\n\n{\"exit\": 1, \"target_r16\": 1, \"pc\": \"0x68000020\", \"api_calls\": {\"VirtualProtect\": 1, \"GetStdHandle\": 3, \"SetUnhandledExceptionFilter\": 1, \"GetEnvironmentVariableA\": 1, \"GetEnvironmentStringsA\": 1, \"WriteFile\": 5, \"GetCommandLineA\": 1, \"CreateFileA\": 2, \"ReadFile\": 7, \"SetFilePointer\": 4, \"CloseHandle\": 1, \"ExitProcess\": 1}}\n",
+    "sha256": "b739cbe41c55539fc12d6483c456453d180eb580edae2cf8ab3e21dca631336d"
+  },
+  {
+    "case": "gcd-fixed",
+    "output": "SVR3 SIM860 i386 R4S: entering original UNIX System V/386 wrapper\ni860(TM) SIMULATOR/DEBUGGER, Release 1.1\nCopyright (C) 1989, Intel Corporation\nGCC i860 GCD PASS\n<< Process terminated, returned value: 0 >>\n\n{\"exit\": 0, \"target_r16\": 0, \"pc\": \"0x68000020\", \"api_calls\": {\"VirtualProtect\": 1, \"GetStdHandle\": 3, \"SetUnhandledExceptionFilter\": 1, \"GetEnvironmentVariableA\": 1, \"GetEnvironmentStringsA\": 1, \"WriteFile\": 5, \"GetCommandLineA\": 1, \"CreateFileA\": 2, \"ReadFile\": 7, \"SetFilePointer\": 4, \"CloseHandle\": 1, \"ExitProcess\": 1}}\n",
+    "sha256": "1437e8264dad1451964c4f2ef3160cdd2a574eabf23688880e5ac365727058c5"
+  },
+  {
+    "case": "gcd-expect-20",
+    "output": "SVR3 SIM860 i386 R4S: entering original UNIX System V/386 wrapper\ni860(TM) SIMULATOR/DEBUGGER, Release 1.1\nCopyright (C) 1989, Intel Corporation\nGCC i860 GCD FAIL\n<< Process terminated, returned value: 1 >>\n\n{\"exit\": 1, \"target_r16\": 1, \"pc\": \"0x68000020\", \"api_calls\": {\"VirtualProtect\": 1, \"GetStdHandle\": 3, \"SetUnhandledExceptionFilter\": 1, \"GetEnvironmentVariableA\": 1, \"GetEnvironmentStringsA\": 1, \"WriteFile\": 5, \"GetCommandLineA\": 1, \"CreateFileA\": 2, \"ReadFile\": 7, \"SetFilePointer\": 4, \"CloseHandle\": 1, \"ExitProcess\": 1}}\n"
+  },
+  {
+    "case": "gcd-expect-22",
+    "output": "SVR3 SIM860 i386 R4S: entering original UNIX System V/386 wrapper\ni860(TM) SIMULATOR/DEBUGGER, Release 1.1\nCopyright (C) 1989, Intel Corporation\nGCC i860 GCD FAIL\n<< Process terminated, returned value: 1 >>\n\n{\"exit\": 1, \"target_r16\": 1, \"pc\": \"0x68000020\", \"api_calls\": {\"VirtualProtect\": 1, \"GetStdHandle\": 3, \"SetUnhandledExceptionFilter\": 1, \"GetEnvironmentVariableA\": 1, \"GetEnvironmentStringsA\": 1, \"WriteFile\": 5, \"GetCommandLineA\": 1, \"CreateFileA\": 2, \"ReadFile\": 7, \"SetFilePointer\": 4, \"CloseHandle\": 1, \"ExitProcess\": 1}}\n"
+  }
+]

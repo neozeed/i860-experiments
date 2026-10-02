@@ -1,0 +1,31 @@
+preserved c745fc01000000 93
+preserved 81eca0010000 1
+preserved f746fc01000000 1
+PASS: R4O static audit {'syscall_gate': 14, 'data_function_target': 2173, 'absolute_text_operand': 14}
+Native Windows execution has NOT been tested here.
+PASS: 13 gate patches, 2 callback immediates, 408 bounded dispatch slots
+PASS: all remaining text and initialized data preserved byte-for-byte
+PASS: original fingerprint, initial break, adjacent PE sections
+Native Windows assembler execution is not tested here.
+PASS: preserved original; 55 syscall gates + 1 signal-return gate, 7 operands, 809 dispatch slots
+PASS: 3 exact precision-bridge hooks; every other historical text/data byte unchanged
+PASS exit860 r16=0
+PASS hello860 r16=0
+PASS -d exit860 r16=0
+PASS umod-0-7 r16=0
+PASS umod-11-5 r16=2
+PASS umod-42f-1ce r16=147
+PASS umod-5-11 r16=5
+PASS umod-7-1 r16=0
+PASS umod-80000000-7 r16=2
+PASS umod-fffffffe-ffffffff r16=4294967294
+PASS umod-ffffffff-3 r16=0
+PASS umod-ffffffff-80000000 r16=2147483647
+PASS 12 actual-PE replays; Windows APIs mocked
+PASS gcd-original expected exit 1
+PASS gcd-fixed expected exit 0
+PASS gcd-expect-20 expected exit 1
+PASS gcd-expect-22 expected exit 1
+PASS precision bridge {'cw': '0x240', 'sw': '0x20', 'precision_tail_called': True}
+PASS precision bridge {'cw': '0x260', 'sw': '0x20', 'precision_tail_called': False}
+PASS precision bridge {'cw': '0x240', 'sw': '0x0', 'precision_tail_called': False}

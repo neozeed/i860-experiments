@@ -1,0 +1,8 @@
+{
+  "unmasked_returncode": -8,
+  "masked_returncode": 0,
+  "reciprocal_bits": "0x3f61bb4a4046ed29",
+  "precision_status": "0x20",
+  "restored_control_word": "0x240",
+  "scope": "Native x87 arithmetic sequence; exact PE bridge tested separately"
+}

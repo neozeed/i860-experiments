@@ -1,0 +1,6 @@
+PASS loop.o linked with guest exit 0 at F040E124 after 76,739 instructions/services
+PASS historical Intel linker banner/copyright output
+PASS trap/service counts [(1, 1), (3, 2), (4, 73), (5, 3), (6, 6), (13, 1), (15, 1), (17, 6), (19, 7), (57, 1)]
+PASS file operations Counter({'lseek': 7, 'open': 3, 'close': 3, 'read': 2, 'write': 1, 'chmod': 1})
+PASS a.out: 426-byte i860 COFF executable, entry F04000C0, .text=32, no relocations
+PASS a.out SHA256 85b2531a8501e67731703cc2856515080338795d221b00c2985e83298e277528

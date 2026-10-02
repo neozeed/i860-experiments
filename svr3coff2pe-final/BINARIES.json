@@ -1,0 +1,44 @@
+[
+  {
+    "file": "as860-pe.exe",
+    "role": "current PGC assembler",
+    "sha256": "2c21971a4f19a8cb3f1cd0707ef8e7986101763b760c893a837f8618be604ae5",
+    "unchanged_from_R4S": true
+  },
+  {
+    "file": "as860-pgc.exe",
+    "role": "preserved R4P assembler",
+    "sha256": "0c952f56b3a2d1bc6092623f3cf97c44bcbf01ab5e45a1d011857d9b7f8bfe82",
+    "unchanged_from_R4S": true
+  },
+  {
+    "file": "ic-pe-r4o.exe",
+    "role": "preserved R4O compiler",
+    "sha256": "52246aeec041594d04c9eebe999756718ee92203488fa643c36e0f43db3a9e14",
+    "unchanged_from_R4S": true
+  },
+  {
+    "file": "ic-pe.exe",
+    "role": "current compiler",
+    "sha256": "41a4407e8fdf64b94474a1a64aea4872018ed444a50b558963b0810849d53a5b",
+    "unchanged_from_R4S": true
+  },
+  {
+    "file": "icc-pe.exe",
+    "role": "current compiler driver",
+    "sha256": "ab3c8fdb8cd0056a0a91a6e4054af97560dea52318f8678a098f416da15305fd",
+    "unchanged_from_R4S": true
+  },
+  {
+    "file": "sim860-i386-pe.exe",
+    "role": "current Intel 1.1 simulator, R4S",
+    "sha256": "e9c436181f2c1a4e5a2c4bb550839e069f35efc63663ab9c97bf9d72db8c4a74",
+    "unchanged_from_R4S": true
+  },
+  {
+    "file": "sim860-i386-r4r.exe",
+    "role": "preserved R4R simulator, known precision trap",
+    "sha256": "93afad3eb5ca9005380e5cab8b1e2307dfa695463c88b5f6c6a36acf3ed219a0",
+    "unchanged_from_R4S": true
+  }
+]

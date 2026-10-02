@@ -1,0 +1,103 @@
+MAINTAINER HANDOFF — 2026-10-02
+
+Baseline: SVR3COFF2PE R4S. Freeze the supplied current binaries as the known
+working reference. Do not overwrite old converted binaries when adding a target.
+Rebuild current names together when changing the shared runtime.
+
+Architecture
+svr3coff2pe.py owns the CLI, family selection and native PE assembly/layout.
+native_ic_profile.py, native_as_profile.py and native_sim_profile.py describe
+exact native inputs. native_icc_profile.py contains the original driver profile
+and native runtime construction. native_relocation.py provides shared decoding
+and relocation helpers. sim860-manifest.json records the simulator audit.
+sim_fp_runtime.py adds the three SIM860-only precision compatibility hooks.
+fat_family.py handles the separate run860/appended-i860 family.
+runtime/proven_intel860_base.py supplies inherited runtime/build machinery.
+build_all.py rebuilds the four current native tools. Each conversion emits an
+EXE and a JSON report with hashes, patches, sections and verification results.
+Original native COFF bytes remain preserved in the PE .orig386 section.
+
+Adding a native profile
+1. Inspect the input and inventory traps. Confirm architecture, entry, section
+   addresses, BSS, initial break, libc allocator state and syscall ABI.
+2. Fingerprint the complete input. Decode extracted text using binary-mode
+   disassembly at its original VA. Do not trust BFD's interpretation of these
+   historical symbols without checking raw COFF records.
+3. Audit complete instructions containing absolute text addresses, including
+   callbacks and signal return pointers. Verify original instruction bytes.
+4. Identify indirect dispatch tables from decoded instructions and prove their
+   bounds. Include instruction decoder tables and independently justified data
+   function pointers. Deduplicate overlapping slots. Never relocate integers
+   just because their numeric values lie in the old text range.
+5. Add an exact profile using the existing modules' interfaces; register it in
+   the converter's inspection and relocation selection. Keep ABI-specific code
+   in the appropriate profile or runtime, not in a filename-based workaround.
+6. Add an independent verifier accounting for every changed text/data byte.
+   Retain layout, permissions, gate replacement and original-image checks.
+7. Replay real PE code if possible, then test on Windows. Exercise error paths
+   and boundary values. Treat CPU emulation as evidence, not native validation.
+8. Preserve the input, manifest, report, toolchain details and live output.
+   Add the target to build_all.py only when its conversion is reproducible.
+
+Lessons / invariants
+R4O removed unsafe sliding-byte pointer guesses that corrupted instructions.
+Decode complete operands; do not restore the old heuristic relocation path.
+R4Q pads the reserved .hdata region so small hosts retain adjacent PE sections.
+Do not weaken sections_rva_adjacent to silence an error.
+Historical data addresses stay fixed; native text moves to 0x500000.
+The runtime translates SVR3 syscall gates and host descriptors. It is a
+compatibility subset, not a full Unix kernel. Driver fork/exec/wait behavior
+uses the existing snapshot/child-launch implementation; it is not general fork.
+
+Compiler dialect
+The driver supplies -astype 1 -reentrant for the PGC assembler path. Direct IC
+output without these options may use an incompatible assembler dialect.
+Example direct use:
+  ic-pe.exe u.c -astype 1 -reentrant -asm u.s
+  as860-pe.exe -o u.o u.s
+The lcpp binary was inspected earlier but is not converted in this toolkit.
+Do not infer complete header/preprocessor or SDK support from the small proof.
+
+R4S precision bridge
+Windows R4R fault C000008F at 0050B83F is an x87 inexact-result exception.
+Intel's Unix simulator enables precision exceptions and expects SIGFPE.
+R4S masks precision only inside audited single/double preparation helpers and
+routes pending enabled precision through Intel's original cleanup tail at the
+helper boundary. It preserves the saved control word. This is not general
+Unix signal delivery. Other FP exceptions and asynchronous signals remain
+unimplemented; Ctrl-C handling and full floating-point ISA coverage are unproven.
+
+Other limits
+The historical heap is bounded at 0x4f0000 for these profiles. stat and related
+services are compatibility subsets; time has inherited deterministic behavior.
+Unsupported syscalls may require new implementation. No performance benchmark
+or complete i860 ISA conformance claim is made. The native simulator removes
+the outer i860 emulation layer but does not validate every guest program.
+The inherited fat-tool runtime has a separate version history; do not silently
+replace a working later sim860.exe with an output from that older path.
+
+Evidence at handoff
+User Windows run: ICC invoked IC, compiled u.c, invoked PGC AS860 and produced
+u.o. IC small C compilation and assembler path were demonstrated live.
+2026-10-02 user Windows run: sim860-i386-pe.exe (R4S / Intel 1.1) gcd-fixed
+printed GCC i860 GCD PASS and returned 0. User also ran the same gcd-fixed with
+separate sim860.exe (Intel N1.3): PASS, return 0.
+Local evidence: full PE instruction replays with imported Win32 APIs mocked,
+independent byte audits, assembled precision bridge cases and native x87 probe.
+Unicorn did not expose the original hardware precision exception, which is why
+Windows testing remains essential for changes to floating-point handling.
+
+The original GCD FAIL was a startup-check bug, not incorrect remainder math.
+Tracing established r16=21 before the comparison. subu + bc rejects equality;
+xor + bnc implements the intended not-equal failure check. The corrected test
+also rejects expected answers 20 and 22. Earlier PASS of the incorrect check
+in another simulator is not proof that its condition-code implementation is
+correct; investigating that separate implementation is outside this handoff.
+
+Resume from this baseline only for a concrete new target or failing program.
+Keep profile changes and runtime changes reviewable separately. No changes to
+the historical compiler's generated arithmetic were needed for the GCD fix.
+
+Historical proprietary inputs are included as supplied for reproducibility.
+Their inclusion does not grant new redistribution rights. Retain existing
+copyright notices; this package does not assign a new license to those inputs.

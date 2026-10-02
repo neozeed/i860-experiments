@@ -1,0 +1,357 @@
+{
+  "format": "I860FAT2PE-R1",
+  "input": {
+    "path": "as860",
+    "sha256": "1047696d2c6581bc2f99a2572ef62d1a0664156a3dd490d3e94e6d69ac85bf2f",
+    "size": 179078
+  },
+  "limitations": [
+    "execution conversion requires the exact proven Intel SVR3 run860 wrapper fingerprint",
+    "appended payload must be Intel i860 COFF with three sections and a 36-byte optional header",
+    "signal registration is stub-success; asynchronous signal delivery is not implemented",
+    "chmod validates existence and accepts Unix mode bits as a Win32 compatibility no-op",
+    "unknown i860 opcodes/syscalls stop with diagnostics rather than being guessed",
+    "step limit is a safety ceiling, not a success oracle; rebuild with --step-limit if a workload legitimately needs more",
+    "this is not yet a universal arbitrary System V/386 COFF converter"
+  ],
+  "outer_patches": [
+    {
+      "kind": "abs_code_ptr",
+      "new_target": 4228368,
+      "old_target": 1504,
+      "old_va": 1347,
+      "text_offset": 1139
+    },
+    {
+      "kind": "abs_code_ptr",
+      "new_target": 4229232,
+      "old_target": 2368,
+      "old_va": 2270,
+      "text_offset": 2062
+    },
+    {
+      "kind": "abs_code_ptr",
+      "new_target": 4229232,
+      "old_target": 2368,
+      "old_va": 2290,
+      "text_offset": 2082
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4227136,
+      "old_va": 272,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 64
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4228393,
+      "old_va": 1529,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 1321
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4228409,
+      "old_va": 1545,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 1337
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4228573,
+      "old_va": 1709,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 1501
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4228593,
+      "old_va": 1729,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 1521
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4228605,
+      "old_va": 1741,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 1533
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4228825,
+      "old_va": 1961,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 1753
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4229021,
+      "old_va": 2157,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 1949
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4229041,
+      "old_va": 2177,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 1969
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4229113,
+      "old_va": 2249,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 2041
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4229218,
+      "old_va": 2354,
+      "selector": 7,
+      "target_va": 4198875,
+      "text_offset": 2146
+    },
+    {
+      "kind": "syscall_gate",
+      "new_va": 4229235,
+      "old_va": 2371,
+      "selector": 15,
+      "target_va": 4199903,
+      "text_offset": 2163
+    }
+  ],
+  "output": {
+    "checks": {
+      "hdata_rw_not_executable": true,
+      "host_rx_not_writable": true,
+      "i860_payload_preserved": true,
+      "no_lcall15": true,
+      "no_lcall7": true,
+      "original_wrapper_preserved": true,
+      "outer_data_exact_va": true,
+      "patched_text_same_size": true
+    },
+    "path": "/mnt/data/i860-fattools-R1/bin/as860.exe",
+    "sections": {
+      ".hdata": {
+        "chars": 3221225536,
+        "name": ".hdata",
+        "raw_offset": 17408,
+        "raw_size": 8704,
+        "rva": 20480,
+        "vsize": 8672
+      },
+      ".host": {
+        "chars": 1610612768,
+        "name": ".host",
+        "raw_offset": 4096,
+        "raw_size": 13312,
+        "rva": 4096,
+        "vsize": 13099
+      },
+      ".i860": {
+        "chars": 1073741888,
+        "name": ".i860",
+        "raw_offset": 29184,
+        "raw_size": 175104,
+        "rva": 40960,
+        "vsize": 174816
+      },
+      ".idata": {
+        "chars": 1073741888,
+        "name": ".idata",
+        "raw_offset": 28672,
+        "raw_size": 512,
+        "rva": 36864,
+        "vsize": 435
+      },
+      ".meta": {
+        "chars": 1073741888,
+        "name": ".meta",
+        "raw_offset": 204288,
+        "raw_size": 6656,
+        "rva": 217088,
+        "vsize": 6611
+      },
+      ".orig386": {
+        "chars": 1073741888,
+        "name": ".orig386",
+        "raw_offset": 210944,
+        "raw_size": 4608,
+        "rva": 225280,
+        "vsize": 4262
+      },
+      ".svtext": {
+        "chars": 1610612768,
+        "name": ".svtext",
+        "raw_offset": 26112,
+        "raw_size": 2560,
+        "rva": 32768,
+        "vsize": 2184
+      }
+    },
+    "sha256": "0f7c4dfaee6bc7c19b0665168a6ac0437a2f5cb2b2a035ee7e9a37efe3752e73",
+    "size": 215552,
+    "size_of_image": 233472
+  },
+  "payload": {
+    "entry": 4030836992,
+    "offset": 4262,
+    "sections": [
+      {
+        "flags": 32,
+        "name": ".text",
+        "nreloc": 0,
+        "scnptr": 192,
+        "size": 136096,
+        "vaddr": 4030726336
+      },
+      {
+        "flags": 64,
+        "name": ".data",
+        "nreloc": 0,
+        "scnptr": 136288,
+        "size": 38528,
+        "vaddr": 5216
+      },
+      {
+        "flags": 128,
+        "name": ".bss",
+        "nreloc": 0,
+        "scnptr": 0,
+        "size": 3840,
+        "vaddr": 43744
+      }
+    ],
+    "sha256": "4c16d1e5ec8ced2afbed8c0ead74aa66501de90aaca53e7625900a7fa08e2cb4",
+    "size": 174816
+  },
+  "runtime": {
+    "diagnostics": "quiet by default; set I860_VERBOSE=1 for host scaffolding; guest output is never filtered",
+    "file_io": "binary-safe Win32 HANDLE backend; no CRT text translation",
+    "low_heap_limit": "0x01000000",
+    "stack": "0x7FFF0000..0x7FFFFFFF",
+    "step_limit": 20000000,
+    "syscalls": "exit/read/write/open/close/creat/unlink/time/chmod/brk/stat/lseek/getpid/getuid/fstat/access/getgid/signal/utssys",
+    "unknown_traps": "diagnostic stop with r31/r16-r19"
+  },
+  "scope": "proven Intel run860 fat-tool family",
+  "static_i860_traps": [
+    {
+      "name": "exit",
+      "pc": 4030838340,
+      "predecessor": 3827236865,
+      "syscall": 1,
+      "word": 1205925888
+    },
+    {
+      "name": "close",
+      "pc": 4030839492,
+      "predecessor": 3827236870,
+      "syscall": 6,
+      "word": 1205925888
+    },
+    {
+      "name": "creat",
+      "pc": 4030839524,
+      "predecessor": 3827236872,
+      "syscall": 8,
+      "word": 1205925888
+    },
+    {
+      "name": "fstat",
+      "pc": 4030846180,
+      "predecessor": 3827236892,
+      "syscall": 28,
+      "word": 1205925888
+    },
+    {
+      "name": "lseek",
+      "pc": 4030847140,
+      "predecessor": 3827236883,
+      "syscall": 19,
+      "word": 1205925888
+    },
+    {
+      "name": "open",
+      "pc": 4030849124,
+      "predecessor": 3827236869,
+      "syscall": 5,
+      "word": 1205925888
+    },
+    {
+      "name": "read",
+      "pc": 4030860132,
+      "predecessor": 3827236867,
+      "syscall": 3,
+      "word": 1205925888
+    },
+    {
+      "name": "brk",
+      "pc": 4030860216,
+      "predecessor": 3827236881,
+      "syscall": 17,
+      "word": 1205925888
+    },
+    {
+      "name": "signal",
+      "pc": 4030860304,
+      "predecessor": 3827236912,
+      "syscall": 48,
+      "word": 1205925888
+    },
+    {
+      "name": "stat",
+      "pc": 4030860356,
+      "predecessor": 3827236882,
+      "syscall": 18,
+      "word": 1205925888
+    },
+    {
+      "name": "time",
+      "pc": 4030862248,
+      "predecessor": 3827236877,
+      "syscall": 13,
+      "word": 1205925888
+    },
+    {
+      "name": "utssys",
+      "pc": 4030862284,
+      "predecessor": 3827236921,
+      "syscall": 57,
+      "word": 1205925888
+    },
+    {
+      "name": "unlink",
+      "pc": 4030862308,
+      "predecessor": 3827236874,
+      "syscall": 10,
+      "word": 1205925888
+    },
+    {
+      "name": "write",
+      "pc": 4030862340,
+      "predecessor": 3827236868,
+      "syscall": 4,
+      "word": 1205925888
+    }
+  ],
+  "wrapper": {
+    "fingerprint_match": true,
+    "sha256": "9c0007b43b93b13f1f06f75832c61a44c5276e59860113ebdc6b04896b784023",
+    "size": 4262
+  }
+}

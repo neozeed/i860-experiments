@@ -1,0 +1,4 @@
+PASS: 13 gate patches, 2 callback immediates, 408 bounded dispatch slots
+PASS: all remaining text and initialized data preserved byte-for-byte
+PASS: original fingerprint, initial break, adjacent PE sections
+Native Windows assembler execution is not tested here.

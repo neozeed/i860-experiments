@@ -1,0 +1,115 @@
+.if n .ds tM (tm)
+.if t .ds tM \u\s-3TM\s+3\d
+.TH "AR860" 1 "2/7/1992" "Release 3.0" "iPSC\*R/860 System"
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.\" This file created by mif2man for "ar860"
+.\" %M% %I% %D% %U%
+.ps 10
+.nr Ll \n(.l
+.fi
+.na
+.nh
+.SH NAME
+AR860 - Creates and maintains archives for the iPSC\*R/860\fR\fR\fR\fR\& system.
+.\" End Summary
+.SH SYNOPSIS
+.br
+\&\fBar860\fR\fR\& [ \fB\&-q\fR\fR\& ] \fR\fIkey\fI\fR\& [ \fR\fI\
+options\fI\fR\& ] \fR\fIlibname\fI\fR\& [ \fR\fIfilename\fI\fR\
+\& ...] 
+.SH ARGUMENTS 
+.ta 1.0i 5.9i
+.HP 1i
+\fR\fIlibname\fI\fR\& 	\h'-\w' 'u' The name of the archive. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fR\fIfilename\fI\fR\& 	\h'-\w' 'u' The name of the target file. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-q\fR\fR\& 	\h'-\w' 'u' Do not display the tool banner (tool name, version, etc.).
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.LP
+You must specify one, and only one, \fR\fIkey\fI\fR\& from the following list:
+.ta 1.0i 5.9i
+.HP 1i
+\fBr\fR\fR\&[\fBu\fR\fR\&] 	\h'-\w' 'u' Replace the file \fR\fI\
+filename\fI\fR\& in the archive \fR\fIlibname\fI\fR\&. If the optional \fB\
+u\fR\fR\& is specified, then \&``update'' the archive (i.e., replace the archive version only if \fR\fI\
+filename\fI\fR\& is newer). If \fR\fIlibname\fI\fR\& does not exist, then create it (unless \fB\
+\&-c\fR\fR\& \fR\fIoption\fI\fR\& is specified). If \fR\fIfilename\fI\fR\
+\& does not appear in the archive, then add it. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fBd\fR\fR\& 	\h'-\w' 'u' Delete \fR\fIfilename\fI\fR\& from the archive.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fBt\fR\fR\& 	\h'-\w' 'u' Display the archive table of contents.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fBe\fR\fR\& 	\h'-\w' 'u' Display the symbol tables of COFF objects in the archive.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fBp\fR\fR\& 	\h'-\w' 'u' Display the archive version of \fR\fI\
+filename\fI\fR\&.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fBx\fR\fR\& 	\h'-\w' 'u' Extract \fR\fIfilename\fI\fR\& from the archive. If no file is named, extract all files.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.LP
+You may specify the following \fR\fIoptions\fI\fR\& in any order:
+.ta 1.0i 5.9i
+.HP 1i
+\fBc\fR\fR\& 	\h'-\w' 'u' If \fR\fIlibname\fI\fR\& does not already exist, do not create it (overrides \fB\
+\&-r\fR\fR\& \fR\fIkey\fI\fR\&).
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fBl\fR\fR\& 	\h'-\w' 'u' Use the current working directory for temporary files.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fBv\fR\fR\& 	\h'-\w' 'u' Verbose mode. For \fB\&-r\fR\fR\&, display the names of the archive members as they are \
+replaced (or added). For \fB\&-d\fR\fR\&, display the names of the archive members as they are \
+deleted. For \fB\&-t\fR\fR\&, display the file mode, the \fR\fI\
+uid\fI\fR\&, the \fR\fIgid\fI\fR\&, the size, and the timestamp \
+of the specified files. For \fB\&-x\fR\fR\&, display the names of the files as they are extracted. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fBa\fR\fR\&, \fBb\fR\fR\&, \fBi\fR\fR\& 	\h'-\w' 'u' Do nothing. Accepted for compatibility.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.SH DESCRIPTION
+.LP
+Use\fB\& ar860\fR\fR\& to manage archives for the iPSC/860\& system. 
+.LP
+The dash prefix is required only for the \fB\&-q\fR\fR\& argument, but current convention recommends using it \
+for all arguments (\fR\fIkey\fI\fR\& and \fR\fIoptions\fI\fR\&).
+.SH SEE ALSO
+.LP
+\fBas860\fR\fR\&, \fBdump860\fR\fR\&, \fBicc\fR\fR\&, \fBif77\fR\fR\
+\&, \fBld860\fR\fR\&, \fBnm860\fR\fR\&, \fBsize860\fR\fR\&, \fB\
+strip860\fR\fR\& 
+.LP
+\fR\fR
+.LP
+.LP

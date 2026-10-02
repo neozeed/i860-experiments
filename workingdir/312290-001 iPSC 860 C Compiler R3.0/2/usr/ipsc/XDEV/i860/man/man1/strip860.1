@@ -1,0 +1,66 @@
+.if n .ds tM (tm)
+.if t .ds tM \u\s-3TM\s+3\d
+.TH "STRIP860" 1 "2/7/1992" "Release 3.0" "iPSC\*R/860 System"
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.\" This file created by mif2man for "strip860"
+.\" %M% %I% %D% %U%
+.ps 10
+.nr Ll \n(.l
+.fi
+.na
+.nh
+.SH NAME
+STRIP860 - Strips symbol information from object files.
+.\" End Summary
+.SH SYNOPSIS
+.br
+\&\fBstrip860\fR\fR\& [ \fR\fIoptions\fI\fR\& ] \fR\fIfilename\fI\fR\
+\& ... 
+.SH ARGUMENTS 
+.ta 1.0i 5.9i
+.HP 1i
+\fR\fIfilename\fI\fR\& 	\h'-\w' 'u' The name of the target iPSC\*R/860\fR\fR\fR\fR\
+\& object file. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.LP
+You may specify the following \fR\fIoptions\fI\fR\& in any order:
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-l\fR\fR\& 	\h'-\w' 'u' Strip line number information only.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-x\fR\fR\& 	\h'-\w' 'u' Do not strip static or external information. (Not implemented)
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-b\fR\fR\& 	\h'-\w' 'u' Do not strip static, external, or scope information. (Not implemented)
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-r\fR\fR\& 	\h'-\w' 'u' Do not strip static, external, or relocation information.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-V\fR\fR\& 	\h'-\w' 'u' Display the tool banner (tool name, version, etc.).
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.SH DESCRIPTION
+.LP
+Use \fBstrip860\fR\fR\& to strip symbol information from object files. 
+.LP
+The default is to strip all symbols. This is generally only acceptable for executables.
+.SH SEE ALSO
+.LP
+\fBas860\fR\fR\&, \fBar860\fR\fR\&, \fBdump860\fR\fR\&, \fBicc\fR\fR\
+\&, \fBif77\fR\fR\&, \fBld860\fR\fR\&, \fBnm860\fR\fR\&, \fBsize860\fR\fR\
+\& 
+.LP
+\fR\fR
+.LP
+.LP

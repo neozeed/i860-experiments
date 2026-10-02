@@ -1,0 +1,158 @@
+.if n .ds tM (tm)
+.if t .ds tM \u\s-3TM\s+3\d
+.TH "NM860" 1 "2/7/1992" "Release 3.0" "iPSC\*R/860 System"
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.\" This file created by mif2man for "nm860"
+.\" %M% %I% %D% %U%
+.ps 10
+.nr Ll \n(.l
+.fi
+.na
+.nh
+.SH NAME
+NM860 - Displays symbol table information for iPSC\*R/860\fR\fR\fR\fR\& object files. 
+.\" End Summary
+.SH SYNOPSIS
+.br
+\&\fBnm860\fR\fR\& [ \fR\fIoptions\fI\fR\& ] \fR\fIfilename\fI\fR\
+\& ... 
+.SH ARGUMENTS 
+.ta 1.0i 5.9i
+.HP 1i
+\fR\fIfilename\fI\fR\& 	\h'-\w' 'u' The name of the iPSC/860\& object file or library. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.LP
+You may specify the following \fR\fIoptions\fI\fR\& in any order:
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-o\fR\fR\& 	\h'-\w' 'u' Display numbers in octal.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-x\fR\fR\& 	\h'-\w' 'u' Display numbers in hexadecimal.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-d\fR\fR\& 	\h'-\w' 'u' Display numbers in decimal.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-h \fR\fR	\h'-\w' 'u' Suppress headers.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-v\fR\fR\& 	\h'-\w' 'u' Sort symbols by value.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-n\fR\fR\& 	\h'-\w' 'u' Sort symbols by name.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-e\fR\fR\& 	\h'-\w' 'u' Display external relocatable symbols only.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-f\fR\fR\& 	\h'-\w' 'u' Display all symbols, including redundant symbols. Overrides \fB\
+\&-e\fR\fR\&.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-u\fR\fR\& 	\h'-\w' 'u' Display a list of undefined symbols.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-r\fR\fR\& 	\h'-\w' 'u' Prepend the current file name to symbols.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-p\fR\fR\& 	\h'-\w' 'u' Use short form output. (See ``Description'' section.) 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-T\fR\fR\& 	\h'-\w' 'u' Truncate symbol names to 19 characters, plus an asterisk to indicate truncation.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+\fB\&-V\fR\fR\& 	\h'-\w' 'u' Display the tool banner (tool name, version, etc.).
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.SH DESCRIPTION
+.LP
+Use \fBnm860\fR\fR\& to display the symbol tables of the named file(s). 
+.LP
+For each symbol in the output of the \fB\&-p\fR\fR\& option, one of the following characters identifies its type:
+.ta 1.0i 5.9i
+.HP 1i
+t 	\h'-\w' 'u' Text section symbol
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+d 	\h'-\w' 'u' Data section symbol
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+b 	\h'-\w' 'u' BSS section symbol
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+f 	\h'-\w' 'u' File tag
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+c 	\h'-\w' 'u' Common symbol
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+a 	\h'-\w' 'u' Absolute
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+u 	\h'-\w' 'u' Undefined
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+r 	\h'-\w' 'u' Register symbol
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.0i 5.9i
+.HP 1i
+s 	\h'-\w' 'u' Other symbol
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.LP
+In addition, local symbols appear in lowercase and external symbols appear in uppercase.
+.LP
+When using the \fB\&-v\fR\fR\& or \fB\&-n\fR\fR\& options (sort by value or name, respectively), the scoping information is \
+jumbled, so it is advisable to use the \fB\&-e\fR\fR\& (externals only) option.
+.SH SEE ALSO
+.LP
+\fBas860\fR\fR\&, \fBar860\fR\fR\&, \fBdump860\fR\fR\&, \fBicc\fR\fR\
+\&, \fBif77\fR\fR\&, \fBld860\fR\fR\&, \fBsize860\fR\fR\&, \fB\
+strip860\fR\fR\& 
+.LP
+\fR\fR
+.LP
+.LP
+\fR\fR
+.LP

@@ -1,0 +1,861 @@
+.if n .ds tM (tm)
+.if t .ds tM \u\s-3TM\s+3\d
+.TH "ICC" 1 "2/7/1992" "Release 3.0" "iPSC\*R/860 System"
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.\" This file created by mif2man for "icc.1"
+.\" %M% %I% %D% %U%
+.ps 10
+.nr Ll \n(.l
+.fi
+.na
+.nh
+.SH NAME
+ICC - Driver for compiling, assembling, and linking C programs for the iPSC/860\& system.
+.\" End Summary
+.SH SYNOPSIS 
+.br
+\&\fBicc\fR\fR\& [\fR\fIswitches\fI\fR\&] \fR\fIsourcefile\fI\fR\
+\&... 
+.SH DESCRIPTION 
+.LP
+The\fB\& icc\fR\fR\& command invokes the iPSC/860\& C compiler, assembler, and linker with switches derived \
+from the driver's command line arguments. 
+.LP
+The\fB\& icc\fR\fR\& bases its processing on the suffixes of the files it is passed: 
+.IP "\(bu" 0.2i
+Files whose names end with ``.c'' are considered to be C programs. They are preprocessed, \
+compiled, and assembled. The resulting object file is placed in the current directory. 
+.IP "\(bu" 0.2i
+Files whose names end with ``.s'' are considered to be i860 assembly language files. They are \
+assembled and the resulting object file is placed in the current directory. 
+.IP "\(bu" 0.2i
+Files whose names end with ``.o'' are considered to be object files. They are passed directly to \
+the linker if linking is requested. 
+.IP "\(bu" 0.2i
+Files whose names end with ``.a'' are considered to be \fBar\fR\fR\
+\& libraries. No action is performed on \&``.a'' files unless linking is requested. 
+.IP "\(bu" 0.2i
+All other files are taken as object files and passed to the linker (if linking is requested) with a \
+warning message.
+.LP
+If a single C program is compiled and linked with one \fBicc\fR\fR\
+\& command, then the intermediate object and assembly files are deleted. 
+.LP
+The compiler is targeted to the Intel i860 System Binary Standard (SBS) for the Intel APX system. \
+The compiler creates object files and executables that will function for any system conforming to the \
+SBS. In addition, the compiler can create object files that will work for any system conforming to \
+the System V, Release 4 Application Binary Interface (ABI) for the i860 microprocessor. 
+.SH SWITCHES 
+.LP
+When debug or profile objects are compiled using the \fB\&-g\fR\fR\
+\& or \fB\&-p\fR\fR\& switches, respectively, the same switch should be used when using \fB\
+icc\fR\fR\& to link the objects. 
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-node\fR\fR\& 	\h'-\w' 'u' Creates executable program for RX node (default). 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-sim860\fR\fR\& 	\h'-\w' 'u' Creates executable program for \fB\
+sim860\fR\fR\& simulator. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-v\fR\fR\& 	\h'-\w' 'u' Prints the command line for each tool before invoking the tool in verbose \
+mode (if the tool has a verbose mode). 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-K\fR\fIflag\fI\fR\& 	\h'-\w' 'u' Requests special compilation semantics from the compiler. The permitted \fR\fI\
+flag\fI\fR\& values are: 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBieee\fR\fR\& 	\h'-\w' 'u' Perform \fBfloat\fR\fR\& and \fB\
+double\fR\fR\& divides in conformance with the IEEE 754 standar\
+d (this is the default\&)\&. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBnoieee\fR\fR\& 	\h'-\w' 'u' Perform \fBfloat\fR\fR\& and \fB\
+double\fR\fR\& divides using a faster inline divide algorithm, which produces results that differ \
+from the IEEE result by no more than three units in the last place. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-M\fR\fIflag\fI\fR\& 	\h'-\w' 'u' Requests specific actions from the compiler. The \fR\fI\
+flag\fI\fR\& values are: 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBanno\fR\fR\& 	\h'-\w' 'u' Produce annotated assembly files, where source code \
+is intermixed with assembly language. \fB\&-Mkeepasm\fR\fR\& or \fB\
+\&-S\fR\fR\& should be used as well. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\&[\fBno\fR\fR\&]\fBasmkeyword\fR\fR\& 
+.br
+\&[Don't] allow the \fBasm\fR\fR\& keyword in C source code \&(default \fB\
+\&-Masmkeyword\fR\fR\&). The format is: \fBasm("\fR\fItext\fB\
+\&")\fR\fR\& 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBcoff\fR\fR\& 	\h'-\w' 'u' Generate Common Object File Format (COFF) format \
+object and executable files. This value causes the compiler to emit Intel-style i860 assembly language \
+and causes the COFF assembler and linker to be invoked. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\&[\fBno\fR\fR\&]\fBdalign\fR\fR\& 	\h'-\w' 'u' \&[Don't] align \fB\
+double\fR\fRs in structures on double-precision boundaries (default \fB\
+\&-Mdalign\fR\fR\&). \fB\&-Mnodalign\fR\fR\& may lead to data alignment exceptions. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\&[\fBno\fR\fR\&]\fBdepchk\fR\fR\& 	\h'-\w' 'u' \&[Don't] assume that potential data dependencies exist \
+\&(default \fB\&-Mdepchk\fR\fR\&). This is especially useful in \
+disambiguating unknown data dependencies between pointers that cannot be resolved at compile time. For \
+example, if two floating point array pointers are passed to a function and the pointers never overlap and thus \
+never conflict, then this switch may result in better code. The granularity of this switch is rather coarse, \
+and hence the user must use precaution to ensure that other \fR\fI\
+necessary\fI\fR\& data dependencies are not overridden. Do not use his switch if such data dependencies do \
+exist. \fB\&-Mnodepchk\fR\fR\& may result in incorrect code; the \fB\
+\&-Msafeptr\fR\fR\& switch provides a less dangerous way to accomplish the same thing. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBdollar,\fR\fIchar\fI\fR\& 	\h'-\w' 'u' Set the character used to replace dollar signs in names \
+to be \fR\fIchar\fI\fR\&. Default is an underscore (_). 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBextract=\fR\fR\&[\fR\fIoption\fI\fR\&[\fB\&,\fR\fIoption\fI\fR\
+\&...]] 
+.br
+Pass options to the function extractor. The \fB\&-o\fR\fIfile\fI\fR\
+\& option must be used with this switch to tell the compiler \
+where to place the extracted functions. The library name must contain a period. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.RS 2.4i
+.LP
+\fR\fIfunction\(em\fI\fRA non-numeric option not containing a \
+period is assumed to be a function name. The named function is extracted. 
+.RE
+.RS 2.4i
+.LP
+\fR\fInumber\fI\fR\(emA numeric option is assumed to be a size. \
+Functions containing approximately \fR\fInumber\fI\fR\& or less \
+statements are extracted. If both \fR\fInumber\fI\fR\& and \fR\fI\
+function\fI\fR\& are specified, then functions matching the given \
+name(s) \fR\fIor\fI\fR\& meeting the size requirements, are extracted. 
+.RE
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBfcon\fR\fR\& 	\h'-\w' 'u' Treat non-suffixed floating point constants as \fB\
+float\fR\fR\&, rather than \fBdouble\fR\fR\&. This may improve the \
+performance of single-precision code. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\&[\fBno\fR\fR\&]\fBframe\fR\fR\& 	\h'-\w' 'u' \&[Don't] include the frame pointer (default \fB\
+\&-Mnoframe\fR\fR\& unless \fBvarargs\fR\fR\& is used, \fBalloca()\fR\fR\
+\& is called\&,\& or the \fB\&-g\fR\fR\& switch is used). Using \fB\
+\&-Mnoframe\fR\fR\& can improve execution time and decrease code, but makes it \
+impossible to get a call stack traceback when using a debugger. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\&[\fBno\fR\fR\&]\fBfunc32\fR\fR\& 	\h'-\w' 'u' \&[Don't] align functions on 32-byte boundaries (default \fB\
+\&-Mfunc32\fR\fR\&). \fB\&-Mfunc32\fR\fR\& may improve cache \
+performance for programs with many small functions. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBinfo=\fR\fR\&[\fR\fIoption\fI\fR\&[\fB\&,\fR\fIoption\fI\fR\
+\&...]] 
+.br
+Emit useful information to the standard error output. The options are: 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.RS 2.4i
+.LP
+\fBtime\fR\fR\& or \fBstat\fR\fR\(emEmit compilation statistics. 
+.RE
+.RS 2.4i
+.LP
+\fBloop\fR\fR\(emEmit information about loops. This includes \
+information about vectorization and software pipelining. 
+.RE
+.RS 2.4i
+.LP
+\fBinline\fR\fR\(emEmit information about functions extracted \
+and inlined. 
+.RE
+.RS 2.4i
+.LP
+\fBcycles\fR\fR\& or \fBblock\fR\fR\& or \fBsize\fR\fR\(emEmit block size in cycles. \
+Useful for comparing various optimization levels against each other. The cycle count emitted is the \
+compiler's static estimate of freeze-free cycles for the block. 
+.RE
+.RS 2.4i
+.LP
+\fBili\fR\fR\(emEmit intermediate language as comments in assembly file. 
+.RE
+.RS 2.4i
+.LP
+\fBall\fR\fR\(emAll of the above. 
+.RE
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBinline=\fR\fR\&[\fR\fIoption\fI\fR\&[\fB\&,\fR\fIoption\fI\fR\
+\&...]]
+.br
+Pass specified \fR\fIoption\fI\fRs to the function inliner. Refer to \
+Appendix C\& for information on using the compiler's function inliner. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBkeepasm\fR\fR\& 	\h'-\w' 'u' Keep the assembly file for each C source file, but \
+continue to assemble and link the program. This is mainly for use in compiler performance analysis and \
+debugging. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBlist\fR\fR\&[\fB\&=\fR\fIname\fI\fR\&]	\h'-\w' 'u' Create a source listing in the file \fR\fI\
+name\fI\fR\&. If \fR\fIname\fI\fR\& is not specified, the listing file has the same name as the \
+source file except that the ``.c'' suffix is replaced by a \&``.lst'' suffix. If \fR\fI\
+name\fI\fR\& is specified, the listing file has that name; no extension is appended. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBnolist\fR\fR\& 	\h'-\w' 'u' Don't create a listing file (this is the default). 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\&[\fBno\fR\fR\&]\fBlongbranch\fR\fR\& 	\h'-\w' 'u' \&[Don't] allow compiler to generate \fB\
+bte\fR\fR\& and \fBbtne\fR\fR\& instructions (default \fB\&-Mlongbranch\fR\fR\
+\&). \fB\&-Mnolongbranch\fR\fR\& should be used only if an assembly \
+error occurs. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBnostartup\fR\fR\& 	\h'-\w' 'u' Do not link the usual start-up routine, which contains \
+the entry point for the program. The start-up file is \fR\fI\&$(IPSC_XDEV)/i860/lib-coff/crt0.o\fI\fR\
+\&. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBnostddef\fR\fR\& 	\h'-\w' 'u' Do not predefine any macros to the preprocessor when \
+compiling a C program\&. The normal predefined macros are \fB\
+\&-D_\|\&_i860\fR\fR\&, \fB\&-D_\|\&_NX\fR\fR\&, and \fB\&-D_\|\
+\&_NODE\fR\fR\& \&(\fB\&-D_\|\&_NODE\fR\fR\& is not defined when compiling with \fB\
+\&-sim860\fR\fR\&). 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBnostdinc\fR\fR\& 	\h'-\w' 'u' Remove the default location from the include files \
+search path.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBnostdlib\fR\fR\& 	\h'-\w' 'u' Do not link the standard libraries when linking a \
+program. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBperf\fR\fR\&[\fB\&=\fR\fIoption\fI\fR\&[\fB\&,\fR\fIoption\fI\fR\
+\&...]] 
+.br
+Generate instrumentation code for PAT (the iPSC/860\& Parallel Performance Analysis Tools). If no \fR\fI\
+option\fI\fRs are specified, then all PAT instrumentation is enabled \
+and all performance monitoring is performed automatically. The available \fR\fI\
+option\fI\fRs are:
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.RS 2.4i
+.LP
+\fBauto\fR\fR\(emPerform performance monitoring automatically.
+.RE
+.RS 2.4i
+.LP
+\fBmanual\fR\fR\(emPerform performance monitoring only when requested by calls to the PAT library.
+.RE
+.RS 2.4i
+.LP
+\fBprof\fR\fR\&[\fB\&=\fR\fR\&{ \fBauto\fR\fR\& | \fBmanual\fR\fR\
+\& }]\(emEnable execution profiling (automatically or manually, default \fB\
+\&=auto\fR\fR\&).
+.RE
+.RS 2.4i
+.LP
+\fBcomm\fR\fR\&[\fB\&=\fR\fR\&{ \fBauto\fR\fR\& | \fBmanual\fR\fR\
+\& }]\(emEnable communication tracing (automatically or manually, default \fB\
+\&=auto\fR\fR\&).
+.RE
+.RS 2.4i
+.LP
+\fBevent\fR\fR\&[\fB\&=\fR\fR\&{ \fBauto\fR\fR\& | \fBmanual\fR\fR\
+\& }]\(emEnable event tracing \&(automatically or manually, default \fB\
+\&=auto\fR\fR\&).
+.RE
+.RS 2.4i
+.LP
+See the \fR\fIiPSC\*R/860\fI\fR\fR\fR\fR\fR\fR\fI\& Parallel Performance Analysis \
+Tools Manual\fI\fR\& for complete information on PAT.
+.RE
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBquad\fR\fR\& 	\h'-\w' 'u' Force top-level objects (e.g., local arrays, structures, \
+etc.) of size greater than or equal to 16 bytes to be quad-aligned. Note that this does not affect items \
+within a top-level object; such items are quad-aligned only if appropriate padding is inserted.\
+\& 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\&[\fBno\fR\fR\&]\fBreentrant\fR\fR\& 	\h'-\w' 'u' \&[Don't] enable optimizations that may result in code \
+that is not reentrant (default \fB\&-Mnoreentrant\fR\fR\&). Even \
+with \fB\&-Mreentrant\fR\fR\&, the code may still not be reentrant \
+if it is improperly written (e.g., declares static variables). 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBsafeptr=\fR\fR\&[\fR\fIoption\fI\fR\&[\fB\&,\fR\fIoption\fI\fR\
+\&...]] 
+.br
+Override data dependence between C pointers and arrays. This is a potentially very dangerous option \
+since the potential exists for code to be generated that will result in unexpected or incorrect results as is \
+defined by ANSI C. However, when used properly, this option has the potential to greatly enhance the \
+performance of code, especially floating point oriented loops. Combinations of the \fR\fI\
+options\fI\fR\& may be used and interact appropriately. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.RS 2.4i
+.LP
+\fBdummy\fR\fR\& or \fBarg\fR\fR\(emC dummy arguments (pointers and \
+arrays) are treated with the same copyin/copyout semantics as Fortran dummy arguments. 
+.RE
+.RS 2.4i
+.LP
+\fBauto\fR\fR\(emC local or \fBauto\fR\fR\& variables (pointers and arrays) \
+are assumed not to overlap or conflict with each other and are independent. 
+.RE
+.RS 2.4i
+.LP
+\fBstatic\fR\fR\(emC \fBstatic\fR\fR\& variables (pointers and arrays) are \
+assumed not to overlap or conflict with each other and are independent. 
+.RE
+.RS 2.4i
+.LP
+\fBglobal\fR\fR\(emC global or \fBextern\fR\fR\& variables (pointers and \
+arrays) are assumed not to overlap or conflict with each other and are independent. 
+.RE
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\&[\fBno\fR\fR\&]\fBsignextend\fR\fR\& 	\h'-\w' 'u' \&[Don't] sign extend when a narrowing conversion \
+overflows (default \fB\&-Msignextend\fR\fR\&). For example, if \fB\
+\&-Msignextend\fR\fR\& is in effect and an integer containing \
+the value 65535 is converted to a \fBshort\fR\fR\&, the value of \
+the \fBshort\fR\fR\& will be -1. This option is provided for \
+compatibility with other compilers, even though ANSI C specifies that the result of such conversions are \
+undefined. \fB\&-Msignextend\fR\fR\& will decrease performance \
+on such conversions. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\&[\fBno\fR\fR\&]\fBsingle\fR\fR\& 	\h'-\w' 'u' \&[Don't] suppress the ANSI-specified conversion of \fB\
+float\fR\fR\& to \fBdouble\fR\fR\& when passing arguments to a function \
+with no prototype in scope (default \fB\&-Mnosingle\fR\fR\&). \fB\
+\&-Msingle\fR\fR\& may result in faster code when single precision is used a lot, but is non-ANSI compliant. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\&[\fBno\fR\fR\&]\fBstreamall\fR\fR\& 	\h'-\w' 'u' \&[Don't] stream all vectors to and from cache in a vector \
+loop (default \fB\&-Mstreamall\fR\fR\&). When \fB\&-Mnostreamall\fR\fR\
+\& is in effect, the compiler chooses one vector to come directly from or go directly to main memory, without \
+being streamed into or out of cache. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBstride0\fR\fR\& 	\h'-\w' 'u' Emit correct code for vectors with a stride (loop \
+increment) of 0, no matter what the optimization or vectorization level.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fBvect\fR\fR\&[\fB\&=\fR\fIoption\fI\fR\&[\fB\&,\fR\fIoption\fI\fR\
+\&...]] 
+.br
+Perform vectorization. If no \fR\fIoption\fI\fRs are specified, then \
+all vector optimizations are enabled. The available \fR\fIoption\fI\fR\
+s are:
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.RS 2.4i
+.LP
+\fBcachesize:\fR\fInumber\fI\fR\(emThis sets the size of the portion of \
+the cache used by the vectorizer to \fR\fInumber\fI\fR\& bytes. \fR\fI\
+number\fI\fR\& must be a multiple of 64, and less than 8192. \
+Normally the best results are obtained using a cache size of 4096. 
+.RE
+.RS 2.4i
+.LP
+\fBnoassoc\fR\fR\(emWhen scalar reductions are present (for example, dot product), and loop unrolling is turned on, \
+the compiler may change the order of operations so that it can generate better code. This transformation \
+can change the result of the computation due to round-off error. The use of \fB\
+noassoc\fR\fR\& prevents this transformation.
+.RE
+.RS 2.4i
+.LP
+\fBrecog\fR\fR\(emRecognize certain loops as simple vector loops and call a special routine.\
+\& 
+.RE
+.RS 2.4i
+.LP
+\fBsmallvect\fR\fR\&[\fB\&:\fR\fInumber\fI\fR\&]\(emThis option allows the \
+vectorizer to assume that the maximum vector length is no greater than \fR\fI\
+number\fI\fR\&. \fR\fInumber\fI\fR\& must be a multiple of 10. Values greater than 1270 should not be used. If \fR\fI\
+number\fI\fR\& is not specified, the value 100 is used. This \
+option allows the vectorizer to avoid stripmining in cases where it cannot determine the maximum vector \
+length. In doubly-nested, non-perfectly nested loops, this option can allow invariant vector motion that \
+would not otherwise have been possible. Incorrect code will result if this option is used, and a vector takes \
+on a length greater than specified. 
+.RE
+.RS 2.4i
+.LP
+\fBtransform\fR\fR\(emPerform high-level transformations such \
+as loop splitting and loop interchanging. This is normally not useful without \fB\
+\&-Mvect=recog\fR\fR\&. 
+.RE
+.RS 1.2i
+.LP
+An unrecognized \fB\&-M\fR\fR\& \fR\fIflag\fI\fR\& is passed directly to the compiler, which often \
+removes the need for the \fB\&-W0\fR\fR\& switch. 
+.RE
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-O\fR\fR\&[\fR\fIlevel\fI\fR\&] 	\h'-\w' 'u' Set the optimization level: 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fR\fR\&0\fR\fR\& 	\h'-\w' 'u' A basic block is generated for each C statement. No \
+scheduling is done between statements. No global optimizations are performed. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fR\fR\&1\fR\fR\& 	\h'-\w' 'u' Scheduling within extended basic blocks is performed. \
+Some register allocation is performed. No global optimizations are performed. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fR\fR\&2\fR\fR\& 	\h'-\w' 'u' All level 1 optimizations are performed. In addition, \
+traditional scalar optimizations such as induction recognition and loop invariant motion are performed \
+by the global optimizer. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fR\fR\&3\fR\fR\& 	\h'-\w' 'u' All level 2 optimizations are performed. In addition, \
+software pipelining is performed.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fR\fR\&4\fR\fR\& 	\h'-\w' 'u' All level 3 optimizations are performed, but with more \
+aggressive register allocation for software pipelined loops. In addition, code for pipelined loops is \
+scheduled several ways, with the best way selected for the assembly file. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.RS 1.2i
+.LP
+If a \fR\fIlevel\fI\fR\& is not supplied with \fB\&-O\fR\fR\& then the optimization level is set to \fR\fR\
+\&2\fR\fR\&. If \fB\&-O\fR\fR\& is not specified, then the default level is \fR\fR\
+\&0\fR\fR\& if \fB\&-g\fR\fR\& is specified, and \fR\fR\&1\fR\fR\
+\& if \fB\&-g\fR\fR\& is not specified. 
+.RE
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-c\fR\fR\& 	\h'-\w' 'u' Skips link step; compiles and assembles only. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-p\fR\fR\& 	\h'-\w' 'u' Generates code for function-level profiling. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-MD\fR\fR\& 	\h'-\w' 'u' Outputs a list of include files to \fR\fI\
+file\fI\fR\&.d (used for \fR\fImakefile\fI\fR\& construction). 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-S\fR\fR\& 	\h'-\w' 'u' Skips the link and assemble step. Leaves the output from the compile step in \
+a file named \fR\fIfile\fI\fR\&.s for each file named \fR\fIfile\fI\fR\
+\&.c. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-E\fR\fR\& 	\h'-\w' 'u' Preprocesses each ``.c'' file and sends the result to \fR\fI\
+stdout\fI\fR\&. No compilation, assembly, or linking is performed. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-P\fR\fR\& 	\h'-\w' 'u' Preprocesses each file and leaves the output in a file named \fR\fI\
+file\fI\fR\&.i for each file named \fR\fIfile\fI\fR\&.c. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-g\fR\fR\& 	\h'-\w' 'u' Generates symbolic debug information at optimization level to \fR\fR\
+\&0\fR\fR\& (zero), unless a \fB\&-O\fR\fR\& switch is present on the command line after the \fB\
+\&-g\fR\fR\&. Symbolic debugging may give confusing results if an optimization level other than \fR\fR\
+\&0\fR\fR\& is selected. \fB\&-O0\fR\fR\& code is significantly slower than code generated at other \
+optimization levels.\& 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-s\fR\fR\& 	\h'-\w' 'u' Strips symbol table information. (Passed to the linker.\
+\&)
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-f\fR\fR\& 	\h'-\w' 'u' Ignored; provides compatibility with other C compilers only. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-W\fR\fIpass\fI\fR\&,\fR\fIoption\fI\fR\&[,\fR\fIoption\fI\fR\
+\&...] 
+.br
+Passes the specified \fR\fIoption\fI\fRs to the specified \fR\fI\
+pass\fI\fR\&:
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fR\fR\&0\fR\fR\& 	\h'-\w' 'u' Compiler (\fBic\fR\fR\&)
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fR\fRa\fR\fR\& 	\h'-\w' 'u' Assembler (\fBas860\fR\fR\&)
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fR\fRl\fR\fR\& 	\h'-\w' 'u' Linker (\fBld860\fR\fR\&)
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.RS 1.2i
+.LP
+Each comma-delimited string is passed as a separate argument. 
+.RE
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-o\fR\fIfile\fI\fR\& 	\h'-\w' 'u' Uses \fR\fIfile\fI\fR\& for the executable program, instead of the default \fB\
+a.out\fR\fR\&. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-I\fR\fIdirectory\fI\fR\& 	\h'-\w' 'u' Adds \fR\fIdirectory\fI\fR\
+\& to the compiler's search path for include files. For include \
+files surrounded by angle brackets (\fR\fR\&<\fR\fR\&.\&.\&.\fR\fR\
+\&>\fR\fR\&), each \fB\&-I\fR\fR\& directory is searched followed by the default location. For include files surrounded by double \
+quotes \&(\fR\fR\&"\fR\fR\&.\&.\&.\fR\fR\&"\fR\fR\&)\&, the directory containing the file containing the \fB\
+\&#include\fR\fR\& directive is searched, followed by the \fB\
+\&-I\fR\fR\& directories, followed by the default location. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-l\fR\fIlibrary\fI\fR\& 	\h'-\w' 'u' Load the library \fB\
+lib\fR\fIlibrary\fB\&.a\fR\fR\&. The library is loaded from the first library \
+directory in the library search path (see the \fB\&-L\fR\fR\& switch) in which a file of that \
+name is encountered. The library name is constructed and the full library path \
+is passed to the linker.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-L\fR\fIdirectory\fI\fR\& 	\h'-\w' 'u' Adds \fR\fIdirectory\fI\fR\
+\& to the driver's search path for libraries. The driver searches \fR\fI\
+directory\fI\fR\& first (before the default path and before any previously specified \fB\
+\&-L\fR\fR\& paths). See also the \fBnostdlib\fR\fR\& and \fB\
+nostartup\fR\fR\& options of the \fB\&-M\fR\fR\& switch.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-Y\fR\fIpass,director\fI\fRy
+.br
+Looks for the specified \fR\fIpass\fI\fR\& in the specified \fR\fI\
+directory\fI\fR\& (rather than in the default location), where \fR\fI\
+pass\fI\fR\& is one of the following: 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fR\fR\&0\fR\fR\& 	\h'-\w' 'u' Compiler (\fBic\fR\fR\&)
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fR\fRa\fR\fR\& 	\h'-\w' 'u' Assembler (\fBas860\fR\fR\&)
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fR\fRl\fR\fR\& 	\h'-\w' 'u' Linker (\fBld860\fR\fR\&)
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fR\fRS\fR\fR\& 	\h'-\w' 'u' Startup object files
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fR\fRI\fR\fR\& 	\h'-\w' 'u' Include directory
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fR\fRL\fR\fR\& 	\h'-\w' 'u' Set the compiler's primary library search path to \fR\fI\
+directory\fI\fR\&.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 4.7i
+.RS 1.2i
+.HP 1.2i
+\fR\fRU\fR\fR\& 	\h'-\w' 'u' Set the compiler's secondary library search path to \fR\fI\
+directory\fI\fR\&. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-D\fR\fIname\fI\fR\&[=\fR\fIdef\fI\fR\&] 	\h'-\w' 'u' Defines \fR\fI\
+name\fI\fR\& to be \fR\fIdef\fI\fR\& in the preprocessor. If \fR\fI\
+def\fI\fR\& is missing, it is assumed to be empty. If the \fR\fR\
+\&=\fR\fR\& sign is also missing, then \fR\fIname\fI\fR\& is defined to be the string \fR\fR\
+\&1\fR\fR\&. 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 1.2i 5.9i
+.HP 1.2i
+\fB\&-U\fR\fIname\fI\fR\& 	\h'-\w' 'u' Remove any initial definition of \fR\fI\
+name\fI\fR\& in the preprocessor. The only names predefined by the preprocessor itself are the standard ANSI C predefined \
+macros. The driver may predefine other names (using the \fB\&-Mnostddef\fR\fR\
+\& switch). Since all \fB\&-D\fR\fR\& switches are processed before all \fB\
+\&-U\fR\fR\& switches, the \fB\&-U\fR\fR\& switch can be used to override the \fB\
+\&-D\fR\fR\& switch.
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.LP
+.ps 14
+.ce 9999
+NOTE
+.ps 10
+.ce 0
+.RS 0.5i
+.ll (\n(Llu-0.5i)
+.LP
+.ta 0.5i
+ANSI C predefined macros can be defined and undefined on the \
+command line, but not with \fB\&#define\fR\fR\& and \fB\&#undefine\fR\fR\
+\& directives in the source file. 
+.RE
+.ll \n(Llu
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.SH FILES 
+.LP
+Executables reside in \fR\fI\&$IPSC_XDEV/i860/bin\fI\fR\&; libraries and objects reside in \fR\fI\
+\&$IPSC_XDEV/i860/lib-coff\fI\fR\&. Include files are searched for in \fR\fI\
+\&$IPSC_XDEV/include\fI\fR\&. \fR\fIIPSC_XDEV\fI\fR\& is an environment variable that can be set to the root of the compiler installation directory. If \fR\fI\
+IPSC_XDEV\fI\fR\& is not set, the default is \fR\fI\&/usr/ipsc/XDEV\fI\fR\
+\&. 
+.ta 2.8i 5.9i
+.HP 2.8i
+\fR\fIa.out\fI\fR\& 	\h'-\w' 'u' Executable output file 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 2.8i 5.9i
+.HP 2.8i
+\fR\fIfile\fI\fR\&.a 	\h'-\w' 'u' Library of object files 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 2.8i 5.9i
+.HP 2.8i
+\fR\fIfile\fI\fR\&.c 	\h'-\w' 'u' C source file 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 2.8i 5.9i
+.HP 2.8i
+\fR\fIfile\fI\fR\&.d 	\h'-\w' 'u' List of include files produced by \fB\
+\&-MD\fR\fR\& 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 2.8i 5.9i
+.HP 2.8i
+\fR\fIfile\fI\fR\&.i 	\h'-\w' 'u' C source file after preprocessing 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 2.8i 5.9i
+.HP 2.8i
+\fR\fIfile\fI\fR\&.lst 	\h'-\w' 'u' Listing file produced by \fB\
+\&-Mlist\fR\fR\& 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 2.8i 5.9i
+.HP 2.8i
+\fR\fIfile\fI\fR\&.o 	\h'-\w' 'u' Object file 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 2.8i 5.9i
+.HP 2.8i
+\fR\fIfile\fI\fR\&.s 	\h'-\w' 'u' Assembler source file 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 2.8i 5.9i
+.HP 2.8i
+\fR\fI\&$(IPSC_XDEV)/i860/bin/ic\fI\fR\& 	\h'-\w' 'u' C compiler 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 2.8i 5.9i
+.HP 2.8i
+\fR\fI\&$(IPSC_XDEV)/i860/bin/as860\fI\fR\& 	\h'-\w' 'u' Intel (COFF) assembler 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 2.8i 5.9i
+.HP 2.8i
+\fR\fI\&$(IPSC_XDEV)/i860/bin/ld860\fI\fR\& 	\h'-\w' 'u' Intel (COFF) linker 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 2.8i 5.9i
+.HP 2.8i
+\fR\fI\&$(IPSC_XDEV)/i860/bin/icc\fI\fR\& 	\h'-\w' 'u' C compiler driver 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 2.8i 5.9i
+.HP 2.8i
+\fR\fI\&$(IPSC_XDEV)/i860/lib-coff/crt0.o\fI\fR\& 	\h'-\w' 'u' \
+C start-up routine 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 2.8i 5.9i
+.HP 2.8i
+\fR\fI\&$(IPSC_XDEV)/i860/lib-coff/iclib.a\fI\fR\& 	\h'-\w' 'u' \
+C built-in intrinsic library 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 2.8i 5.9i
+.HP 2.8i
+\fR\fI\&$(IPSC_XDEV)/i860/include\fI\fR\& 	\h'-\w' 'u' ANSI include files for C library 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.ta 2.8i 5.9i
+.HP 2.8i
+\fR\fI\&$(IPSC_XDEV)/i860/include\fI\fR\&-ipsc 	\h'-\w' 'u' Include files 
+.RE
+.ta 0.50i +0.5i +0.5i +0.5i +0.5i
+.SH SEE ALSO 
+.LP
+\fBic\fR\fR\& 
+.SH DIAGNOSTICS 
+.LP
+The compiler produces information and error messages as it translates the input program. The linker \
+and assembler may generate their own error messages. 
+.SH BUGS 
+.LP
+Refer to the \fR\fIiPSC\*R/860\fI\fI\fI\fI\& C Compiler Software Product Release Notes\fI\fR\
+\&. \fR\fR
+.LP
+\fR\fR
+.LP
+.LP
